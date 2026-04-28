@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none" aria-hidden="true">
+  <!-- Navy triangle (outline)  Solaryn mark -->
+  <path
+    d="M64 18 110 104H18L64 18Z"
+    stroke="#0A192F"
+    stroke-width="4.5"
+    stroke-linejoin="miter"
+    fill="none"
+  />
+  <!-- Magenta Phi-inspired mark -->
+  <circle cx="64" cy="66" r="19" stroke="#C71585" stroke-width="3.8" fill="none" />
+  <path
+    d="M64 26v76"
+    stroke="#C71585"
+    stroke-width="3.8"
+    stroke-linecap="square"
+  />
+</svg>

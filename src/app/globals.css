@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+:root {
+  /* Institutional parchment — single light ground for seamless scroll */
+  --background: #faf9f6;
+  --foreground: #0a192f;
+  --navy: #0a192f;
+  --paper: #ffffff;
+  --slate-accent: #faf9f6;
+  --border-subtle: #e2e8f0;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-paper: var(--paper);
+  --color-foreground: var(--foreground);
+  --color-navy: var(--navy);
+  --color-navy-900: #0a192f;
+  --color-navy-800: #112240;
+  --color-gold: #93846f;
+  --color-slate-accent: var(--slate-accent);
+  --color-border-subtle: var(--border-subtle);
+  --font-sans: var(--font-geist-sans), var(--font-inter), ui-sans-serif,
+    system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-quote), ui-serif, Georgia, "Times New Roman", serif;
+  --tracking-tighter: -0.05em;
+  --tracking-widest: 0.2em;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), var(--font-inter), ui-sans-serif,
+    system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer utilities {
+  /* Institutional serif: subtle optical kerning (overridable per element). */
+  .font-serif {
+    letter-spacing: 0.01em;
+  }
+}
