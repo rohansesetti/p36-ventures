@@ -1,11 +1,111 @@
 import { pillars as pillarData } from "@/data/pillars";
 import Link from "next/link";
 
+function firstTwoSentences(text: string) {
+  const cleaned = text.replace(/\s+/g, " ").trim();
+  if (!cleaned) return cleaned;
+
+  const sentences = cleaned.match(/[^.!?]+[.!?]+(\s+|$)/g);
+  if (!sentences) return cleaned;
+  return sentences.slice(0, 2).join("").trim();
+}
+
+function PillarGlyph({ sectionId }: { sectionId: string }) {
+  const common = "h-10 w-10 text-[#2E0A12]/70";
+  switch (sectionId) {
+    case "capital-strategy":
+      return (
+        <svg
+          className={common}
+          viewBox="0 0 40 40"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden
+        >
+          <path
+            d="M20 6l10 10-10 10L10 16 20 6Z"
+            stroke="currentColor"
+            strokeWidth="1.2"
+          />
+          <path
+            d="M20 14v12M14 20h12"
+            stroke="currentColor"
+            strokeWidth="1.1"
+            strokeLinecap="round"
+          />
+        </svg>
+      );
+    case "investor-readiness":
+      return (
+        <svg
+          className={common}
+          viewBox="0 0 40 40"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden
+        >
+          <path
+            d="M8 12h24v20H8V12Z"
+            stroke="currentColor"
+            strokeWidth="1.2"
+          />
+          <path
+            d="M12 16h16M12 21h12M12 26h14"
+            stroke="currentColor"
+            strokeWidth="1.1"
+            strokeLinecap="round"
+          />
+        </svg>
+      );
+    case "global-gtm":
+      return (
+        <svg
+          className={common}
+          viewBox="0 0 40 40"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden
+        >
+          <circle cx="20" cy="20" r="12" stroke="currentColor" strokeWidth="1.2" />
+          <path
+            d="M8 20h24M20 8c3.5 4.2 5.6 8.2 5.6 12S23.5 27.8 20 32c-3.5-4.2-5.6-8.2-5.6-12S16.5 12.2 20 8Z"
+            stroke="currentColor"
+            strokeWidth="1.1"
+          />
+        </svg>
+      );
+    case "structural-strategy":
+      return (
+        <svg
+          className={common}
+          viewBox="0 0 40 40"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden
+        >
+          <path
+            d="M12 12h16v16H12V12Z"
+            stroke="currentColor"
+            strokeWidth="1.2"
+          />
+          <path
+            d="M14 28V32M26 28V32M14 8V12M26 8V12M8 14h4M28 14h4M8 26h4M28 26h4"
+            stroke="currentColor"
+            strokeWidth="1.1"
+            strokeLinecap="round"
+          />
+        </svg>
+      );
+    default:
+      return null;
+  }
+}
+
 export function Services() {
   return (
     <section
       id="services"
-      className="bg-[#FAF9F6] py-24 lg:py-32"
+      className="bg-[#DDCAB3] py-24 lg:py-32"
     >
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
         <div className="mb-16 text-center lg:mb-20">
@@ -37,136 +137,81 @@ export function Services() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {pillarData.map((pillar) => (
+        <div className="grid grid-cols-1 overflow-hidden border border-[#2E0A12] md:grid-cols-2">
+          {pillarData.map((pillar, i) => (
             <article
               key={pillar.sectionId}
-              className={
-                pillar.sectionId === "capital-strategy"
-                  ? "relative flex flex-col border border-[#93846F] bg-white p-8 shadow-[0_2px_14px_rgba(147,132,111,0.14)] transition-[border-color,box-shadow] duration-200 hover:shadow-[0_4px_20px_rgba(147,132,111,0.18)]"
-                  : "flex flex-col border-0.5 border-navy/10 bg-white p-8 shadow-[0_1px_3px_rgba(10,25,47,0.05)] transition-[border-color,box-shadow] duration-200 hover:border-navy/15 hover:shadow-[0_2px_10px_rgba(10,25,47,0.07)]"
-              }
+              className={[
+                "group relative flex min-h-[320px] flex-col bg-[#DDCAB3] p-8 transition-colors duration-200",
+                "focus-within:outline-none",
+                i % 2 === 0 ? "md:border-r md:border-r-[#2E0A12]" : "",
+                i < 2 ? "md:border-b md:border-b-[#2E0A12]" : "",
+                i < pillarData.length - 1 ? "border-b border-b-[#2E0A12] md:border-b-0" : "",
+                "hover:bg-[#DDCAB3]/90",
+              ].join(" ")}
             >
-              {pillar.sectionId === "capital-strategy" ? (
-                <div
-                  className="absolute right-8 top-8 z-10 flex items-center gap-1.5 rounded-sm bg-[#93846F] px-2.5 py-1.5 text-[9px] font-semibold uppercase tracking-widest text-[#0A192F]"
-                  aria-label="Lead service"
-                >
-                  <svg
-                    className="h-3 w-3 shrink-0 opacity-90"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden
-                  >
-                    <circle
-                      cx="8"
-                      cy="3.5"
-                      r="1.75"
-                      stroke="currentColor"
-                      strokeWidth="1.2"
-                    />
-                    <circle
-                      cx="4"
-                      cy="11.5"
-                      r="1.75"
-                      stroke="currentColor"
-                      strokeWidth="1.2"
-                    />
-                    <circle
-                      cx="12"
-                      cy="11.5"
-                      r="1.75"
-                      stroke="currentColor"
-                      strokeWidth="1.2"
-                    />
-                    <path
-                      d="M8 5.2v2.2M6.2 9.8l-1.1 1.1M9.8 9.8l1.1 1.1"
-                      stroke="currentColor"
-                      strokeWidth="1"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                  Lead Service
-                </div>
-              ) : null}
-              {pillar.sectionHeading ? (
-                <h3
-                  className={
-                    pillar.sectionId === "capital-strategy"
-                      ? "mt-0 pr-24 text-xl font-semibold leading-snug tracking-tight text-navy-900"
-                      : "mt-0 text-xl font-semibold leading-snug tracking-tight text-navy-900"
-                  }
-                >
-                  <span className="font-mono text-sm tabular-nums text-[#93846F]/70">
-                    {pillar.sectionHeading.number}.
-                  </span>{" "}
-                  <span className="font-semibold text-navy-900">
-                    {pillar.sectionHeading.beforeSerif}
-                  </span>{" "}
-                  <span className="font-serif font-semibold italic text-navy-900">
-                    {pillar.sectionHeading.serif}
-                  </span>
-                </h3>
-              ) : (
-                <>
-                  <span className="font-mono text-sm tabular-nums text-[#93846F]/70">
-                    {pillar.label.slice(-2)}
-                  </span>
-                  <h3 className="mt-6 text-xl font-semibold uppercase tracking-[0.2em] text-navy-900">
-                    {pillar.title}
+              <div className="flex items-start justify-between gap-6">
+                <div className="min-w-0">
+                  <p className="font-serif text-5xl leading-none tabular-nums tracking-[-0.02em] text-[#2E0A12]">
+                    {pillar.sectionHeading?.number ?? pillar.label.slice(-2)}
+                  </p>
+                  <h3 className="mt-4 text-[11px] font-bold uppercase tracking-[0.22em] text-[#0A192F]">
+                    {(pillar.sectionHeading
+                      ? `${pillar.sectionHeading.beforeSerif} ${pillar.sectionHeading.serif}`
+                      : pillar.title
+                    ).toUpperCase()}
                   </h3>
-                </>
-              )}
-              {pillar.headline.trim() ? (
-                <p className="mt-2 text-lg font-serif font-semibold italic leading-snug tracking-tight text-navy-900">
-                  {pillar.headline}
+                </div>
+                <div className="shrink-0">
+                  <PillarGlyph sectionId={pillar.sectionId} />
+                </div>
+              </div>
+
+              <div className="mt-8 flex-1 overflow-hidden">
+                <p className="text-sm leading-relaxed text-[#0A192F]/85 transition-transform duration-300 ease-out group-hover:-translate-y-2">
+                  {firstTwoSentences(pillar.lead)}
                 </p>
-              ) : null}
-              <p
-                className={
-                  pillar.sectionId === "capital-strategy"
-                    ? "mt-4 text-sm leading-loose text-navy-900/85"
-                    : pillar.sectionHeading
-                      ? "mt-4 text-base leading-relaxed text-navy-900/85"
-                      : "mt-4 text-sm leading-relaxed text-navy-900/85"
-                }
-              >
-                {pillar.lead}
-              </p>
-              <ul className="mt-6 space-y-2 text-sm text-navy-900/85">
-                {pillar.highlights.map((item) => {
-                  if (pillar.leadOperational && item === pillar.leadOperational) {
-                    return (
-                      <li
-                        key={item}
-                        className="flex flex-col gap-1.5 border-l-[3px] border-[#93846F] pl-4"
-                      >
-                        <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#93846F]">
-                          {pillar.leadOperationalLabel ??
-                            "Lead operational service"}
-                        </span>
-                        <div className="flex gap-2">
-                          <span className="shrink-0 text-[#93846F]" aria-hidden>
+
+                <div className="mt-6 max-h-0 translate-y-2 overflow-hidden opacity-0 transition-[max-height,opacity,transform] duration-300 ease-out group-hover:max-h-56 group-hover:translate-y-0 group-hover:opacity-100">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#2E0A12]/70">
+                    Specific deliverables
+                  </p>
+                  <ul className="mt-3 space-y-2 text-sm text-[#0A192F]/85">
+                    {pillar.highlights.slice(0, 6).map((item) => {
+                      const isGrant =
+                        pillar.sectionId === "capital-strategy" &&
+                        /grant funding/i.test(item);
+                      return (
+                        <li key={item} className="flex items-start gap-2">
+                          <span className="mt-1 shrink-0 text-[#2E0A12]/60" aria-hidden>
                             —
                           </span>
-                          <span className="font-semibold text-navy-900">
-                            {item}
+                          <span className="min-w-0">
+                            <span className="font-medium">{item}</span>
+                            {isGrant ? (
+                              <span className="ml-2 inline-flex border border-[#2E0A12]/60 px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.22em] text-[#2E0A12]">
+                                [ ACTIVE MANDATE: $30K TECHNICAL SUBSIDY ]
+                              </span>
+                            ) : null}
                           </span>
-                        </div>
-                      </li>
-                    );
-                  }
-                  return (
-                    <li key={item} className="flex gap-2">
-                      <span className="shrink-0 text-[#93846F]" aria-hidden>
-                        —
-                      </span>
-                      <span>{item}</span>
-                    </li>
-                  );
-                })}
-              </ul>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              </div>
+
+              <div className="mt-10 flex items-center justify-between gap-6">
+                <Link
+                  href="/services"
+                  className="text-[11px] font-bold uppercase tracking-[0.22em] text-[#0A192F]/80 underline decoration-[#2E0A12]/25 underline-offset-4 transition-colors hover:text-[#0A192F] hover:decoration-[#2E0A12]/45"
+                >
+                  View module
+                </Link>
+                <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#2E0A12]/55">
+                  Hover to reveal
+                </span>
+              </div>
             </article>
           ))}
         </div>

@@ -45,7 +45,7 @@ export const pillars: PillarData[] = [
       "We don't just prepare you for the market; we bring the market to you. P36 acts as your strategic bridge, connecting your venture with our private network of institutional investors, family offices, and venture funds. We handle the outreach and the introductions, ensuring your story lands on the right desks to secure the funding you need.",
     highlights: [
       "Investor Access",
-      "Grant funding & strategy",
+      "Grant Funding & Strategy",
       "Equity & dilution planning",
       "Investor pitch materials",
       "R&D tax recovery",
@@ -75,7 +75,7 @@ export const pillars: PillarData[] = [
       serif: "Readiness",
     },
     lead:
-      "Investors reward clarity, especially under pressure. We build the financial story, the data rooms, and the reporting metrics that hold up in live due diligence—not just in the pitch deck. We handle the intense preparation required to close a deal so you can lead the negotiation with total confidence.",
+      "Data rooms and narratives engineered to withstand institutional scrutiny. We architect the financial core and due diligence frameworks required to close complex mandates with total confidence.",
     highlights: [
       "Investor data room",
       "Pitch deck & Q&A prep",
