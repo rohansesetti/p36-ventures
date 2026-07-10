@@ -9,10 +9,10 @@ module.exports = {
           900: "#0A192F",
           800: "#112240",
         },
-        gold: "#93846F",
+        gold: "#C5A059",
       },
       fontFamily: {
-        sans: ["var(--font-geist-sans)", "var(--font-inter)", "sans-serif"],
+        sans: ["var(--font-geist-sans)", "sans-serif"],
       },
       letterSpacing: {
         tighter: "-0.05em",

@@ -1,3 +1,5 @@
+import { Container } from "@/components/ui/Container";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -7,12 +9,13 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <main className="flex-1 bg-background">
-      <header className="border-b border-border-subtle bg-background py-16 lg:py-20">
-        <div className="mx-auto max-w-3xl px-6 lg:px-8">
-          <h1 className="text-3xl font-light tracking-tight text-navy-900">
-            Privacy
-          </h1>
+    <main className="flex-1 bg-paper pt-[120px]">
+      <header className="page-hero">
+        <Container className="max-w-3xl">
+          <SectionHeader
+            eyebrow="Legal"
+            title="Privacy"
+          />
           <p className="mt-4 text-sm leading-relaxed text-navy-900/85">
             We treat inquiry and engagement data with the same discretion as our
             client work. A full policy will be published here; for questions,
@@ -25,7 +28,7 @@ export default function PrivacyPage() {
             </a>
             .
           </p>
-        </div>
+        </Container>
       </header>
     </main>
   );

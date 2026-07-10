@@ -1,31 +1,29 @@
 import { ContactForm } from "@/components/contact/ContactForm";
+import { Container } from "@/components/ui/Container";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 import type { Metadata } from "next";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Contact | P36 Ventures",
   description:
-    "Initiate a mandate—limited partnerships per year to ensure execution-level quality.",
+    "Initialize a transaction audit or request a direct advisory briefing.",
 };
 
 export default function ContactPage() {
   return (
-    <main className="flex-1 bg-background">
-      <header className="border-b border-border-subtle bg-background py-20 lg:py-24">
-        <div className="mx-auto max-w-6xl px-6 lg:px-8">
-          <p className="text-xs font-semibold uppercase tracking-widest text-navy-900/50">
-            Contact
-          </p>
-          <h1 className="mt-4 text-4xl font-light tracking-tight text-navy-900 sm:text-5xl">
-            Initiate a Mandate.
-          </h1>
-          <p className="mt-6 max-w-2xl text-sm leading-relaxed text-navy-900/85">
-            We partner with a limited number of high-stakes ventures to ensure
-            execution-level quality.
-          </p>
-        </div>
+    <main className="flex-1 bg-paper pt-[120px]">
+      <header className="page-hero">
+        <Container>
+          <SectionHeader
+            eyebrow="Contact"
+            title="Initialize a Transaction Audit."
+            description="We partner with a limited number of high-stakes ventures to ensure execution-level quality."
+          />
+        </Container>
       </header>
 
-      <div className="mx-auto max-w-6xl px-6 py-16 lg:grid lg:grid-cols-12 lg:gap-16 lg:px-8 lg:py-20">
+      <Container className="py-16 lg:grid lg:grid-cols-12 lg:gap-16 lg:py-20">
         <aside className="mb-12 lg:col-span-4 lg:mb-0">
           <div className="lg:sticky lg:top-28">
             <h2 className="text-[10px] font-semibold uppercase tracking-widest text-navy-900/45">
@@ -53,9 +51,11 @@ export default function ContactPage() {
           </div>
         </aside>
         <div className="lg:col-span-7 lg:col-start-6">
-          <ContactForm />
+          <Suspense fallback={null}>
+            <ContactForm />
+          </Suspense>
         </div>
-      </div>
+      </Container>
     </main>
   );
 }

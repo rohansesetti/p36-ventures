@@ -1,31 +1,23 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Inter, Playfair_Display } from "next/font/google";
+import { Fraunces, Inter } from "next/font/google";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+  weight: ["300", "400", "500"],
 });
 
-const playfair = Playfair_Display({
-  variable: "--font-quote",
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
   subsets: ["latin"],
+  weight: ["300", "400"],
 });
 
 export const metadata: Metadata = {
-  title: "P36 Ventures | Strategic Finance & Capital",
+  title: "P36 Ventures — Venture Studio & Capital Advisory",
   description:
-    "The operational engine room for founders. Infrastructure, capital, and exit engineering for high-growth ventures.",
+    "A small studio and advisory practice for founders who need either a company built from a blank page, or an institutional capital stack engineered around one already in motion.",
 };
 
 export default function RootLayout({
@@ -36,9 +28,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${playfair.variable} h-full scroll-smooth antialiased`}
+      className={`${inter.variable} ${fraunces.variable} h-full scroll-smooth antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-background text-navy-900 antialiased">
+      <body className="min-h-full flex flex-col bg-paper font-sans font-light text-ink antialiased">
         {children}
       </body>
     </html>

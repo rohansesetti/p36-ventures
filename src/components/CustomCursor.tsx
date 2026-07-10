@@ -49,7 +49,7 @@ export function CustomCursor() {
 
   return (
     <div
-      className="pointer-events-none fixed z-[100] hidden mix-blend-difference lg:block box-border rounded-full border-2 border-[#FAF9F6] bg-transparent transition-[width,height] duration-300 ease-out"
+      className="pointer-events-none fixed z-[10001] hidden mix-blend-difference lg:block box-border rounded-full border-2 border-background bg-transparent transition-[width,height] duration-300 ease-out"
       style={{
         left: pos.x - offset,
         top: pos.y - offset,

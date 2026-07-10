@@ -1,65 +1,31 @@
 import Image from "next/image";
 import Link from "next/link";
-import { NavyNoise } from "@/components/NavyNoise";
-
-const quickLinks = [
-  { href: "/services", label: "Services" },
-  { href: "/portfolio", label: "Portfolio" },
-  { href: "/about", label: "About" },
-  { href: "/privacy", label: "Privacy" },
-] as const;
 
 export function Footer() {
   return (
-    <footer className="relative border-t-0.5 border-white/10 bg-[#0A192F] text-white">
-      <NavyNoise />
-      <div className="relative z-10 mx-auto max-w-[1400px] px-6 py-20 lg:px-8 lg:py-24">
-        <div className="grid grid-cols-1 gap-14 lg:grid-cols-3 lg:gap-12 lg:gap-y-0">
-          <div className="flex flex-col gap-5">
-            <Image
-              src="/p36-logo.png"
-              alt=""
-              width={44}
-              height={44}
-              className="h-11 w-auto mix-blend-multiply opacity-[0.98]"
-            />
-            <p className="max-w-xs text-[10px] font-normal uppercase leading-relaxed tracking-widest text-white/55">
-              Venture architecture &amp; capital strategy
-            </p>
-          </div>
-
-          <nav className="flex flex-col gap-3" aria-label="Quick links">
-            <p className="text-[10px] font-normal uppercase tracking-widest text-white/40">
-              Quick links
-            </p>
-            <ul className="mt-1 flex flex-col gap-2.5">
-              {quickLinks.map((item) => (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    className="text-[10px] uppercase tracking-widest text-white/70 transition-colors hover:text-white"
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-
-          <div className="lg:text-right">
-            <p className="text-[10px] font-normal uppercase tracking-widest text-white/40">
-              Operational bases
-            </p>
-            <p className="mt-3 text-[10px] uppercase tracking-widest text-white/75">
-              London / New York
-            </p>
-          </div>
+    <footer className="relative z-[1] border-t border-line py-11">
+      <div className="wrap flex flex-wrap items-center justify-between gap-5 text-[12.5px] text-ink-faint">
+        <div className="flex items-center gap-5">
+          <Image
+            src="/p36-logo.png"
+            alt="P36 Ventures"
+            width={100}
+            height={40}
+            className="h-8 w-auto opacity-80"
+            style={{ height: "auto" }}
+          />
+          <span>© {new Date().getFullYear()} P36 Ventures</span>
         </div>
-
-        <div className="mt-16 border-t-0.5 border-white/10 pt-10">
-          <p className="text-[10px] tracking-widest text-white/35">
-            © {new Date().getFullYear()} P36 Ventures. All rights reserved.
-          </p>
+        <div>
+          <Link href="/#disciplines" className="mr-6 text-ink-faint no-underline hover:text-ink">
+            Studio &amp; Capital
+          </Link>
+          <Link href="/#work" className="mr-6 text-ink-faint no-underline hover:text-ink">
+            Portfolio
+          </Link>
+          <Link href="/#process" className="text-ink-faint no-underline hover:text-ink">
+            Process
+          </Link>
         </div>
       </div>
     </footer>

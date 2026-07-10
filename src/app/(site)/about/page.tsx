@@ -1,7 +1,8 @@
 import { AboutScrollJourney } from "@/components/about/AboutScrollJourney";
 import { Methodology } from "@/components/sections/Methodology";
+import { ButtonLink } from "@/components/ui/ButtonLink";
+import { Container } from "@/components/ui/Container";
 import type { Metadata } from "next";
-import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "About | P36 Ventures",
@@ -34,11 +35,11 @@ const team = [
 
 export default function AboutPage() {
   return (
-    <main className="flex-1 bg-background">
+    <main className="flex-1 bg-paper">
       <AboutScrollJourney />
 
       <section className="border-b border-border-subtle py-16 lg:py-20">
-        <div className="mx-auto max-w-3xl px-6 lg:px-8">
+        <Container className="max-w-3xl">
           <p className="text-lg font-medium leading-relaxed tracking-tight text-navy-900 sm:text-xl">
             P36 Ventures is not a traditional consultancy. We are an operational
             engine room founded on the principle that strategy without execution
@@ -49,15 +50,13 @@ export default function AboutPage() {
             back-office infrastructure, capital narratives, and operating rhythms
             that turn high-growth teams into investable, durable companies.
           </p>
-        </div>
+        </Container>
       </section>
 
-      <section className="border-b border-border-subtle bg-background py-20 lg:py-28">
-        <div className="mx-auto max-w-6xl px-6 lg:px-8">
-          <p className="text-xs font-semibold uppercase tracking-widest text-navy-900/50">
-            The fractional edge
-          </p>
-          <h2 className="mt-4 text-3xl font-semibold tracking-tighter text-navy-900 sm:text-4xl">
+      <section className="border-b border-border-subtle bg-background section-py">
+        <Container>
+          <p className="label-mono-gold">The fractional edge</p>
+          <h2 className="heading-h2 mt-4 text-3xl text-navy-900 sm:text-4xl">
             Fractional CFO / COO—without the theater.
           </h2>
           <p className="mt-6 max-w-3xl text-sm leading-relaxed text-navy-900/85">
@@ -83,21 +82,16 @@ export default function AboutPage() {
               Embedded leadership in the data room—not quarterly check-ins.
             </li>
           </ul>
-          <Link
-            href="/services"
-            className="mt-10 inline-flex border border-navy-900/20 bg-white px-6 py-3 text-xs font-semibold uppercase tracking-widest text-navy-900 shadow-[0_1px_2px_rgba(10,25,47,0.05)] transition-colors hover:border-navy-900/40 hover:bg-white"
-          >
+          <ButtonLink href="/services" className="mt-10">
             View service modules
-          </Link>
-        </div>
+          </ButtonLink>
+        </Container>
       </section>
 
-      <section className="py-20 lg:py-28">
-        <div className="mx-auto max-w-6xl px-6 lg:px-8">
-          <p className="text-xs font-semibold uppercase tracking-widest text-navy-900/50">
-            Team
-          </p>
-          <h2 className="mt-4 text-3xl font-semibold tracking-tighter text-navy-900 sm:text-4xl">
+      <section className="section-py">
+        <Container>
+          <p className="label-mono-gold">Team</p>
+          <h2 className="heading-h2 mt-4 text-3xl text-navy-900 sm:text-4xl">
             Deep operational experience
           </h2>
           <p className="mt-4 max-w-2xl text-sm leading-relaxed text-navy-900/85">
@@ -108,7 +102,14 @@ export default function AboutPage() {
           <ul className="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
             {team.map((member) => (
               <li key={member.name}>
-                <div className="aspect-[4/5] w-full border-0.5 border-navy/10 bg-white shadow-[0_1px_3px_rgba(10,25,47,0.05)]" />
+                <div className="flex aspect-[4/5] w-full items-center justify-center border-0.5 border-navy/10 bg-white shadow-[0_1px_3px_rgba(10,25,47,0.05)]">
+                  <span className="font-serif text-4xl italic text-navy-900/15">
+                    {member.name
+                      .split(" ")
+                      .map((n) => n[0])
+                      .join("")}
+                  </span>
+                </div>
                 <p className="mt-4 text-sm font-semibold text-navy-900">
                   {member.name}
                 </p>
@@ -121,7 +122,7 @@ export default function AboutPage() {
               </li>
             ))}
           </ul>
-        </div>
+        </Container>
       </section>
 
       <Methodology />

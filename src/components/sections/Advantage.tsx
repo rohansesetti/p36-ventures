@@ -1,3 +1,5 @@
+import { Container } from "@/components/ui/Container";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 import type { ReactNode } from "react";
 
 const blocks: { title: string; body: ReactNode }[] = [
@@ -30,23 +32,17 @@ export function Advantage() {
   return (
     <section
       id="advantage"
-      className="border-b border-border-subtle border-t-0.5 border-t-navy/10 bg-background py-24 lg:py-32"
+      className="border-b border-border-subtle border-t-0.5 border-t-navy/10 bg-background section-py"
     >
-      <div className="mx-auto max-w-6xl px-6 lg:px-8">
+      <Container>
         <div className="lg:grid lg:grid-cols-12 lg:gap-0">
           <div className="border-border-subtle lg:col-span-5 lg:border-r lg:border-r-0.5 lg:border-navy/10 lg:pr-12">
             <div className="lg:sticky lg:top-32">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-navy-900/50">
-                Why P36
-              </p>
-              <h2 className="mt-4 text-4xl font-light tracking-[-0.03em] text-navy-900 sm:text-5xl">
-                The P36 Advantage
-              </h2>
-              <p className="mt-8 pb-4 text-sm leading-relaxed text-navy-900/85 lg:mt-10 lg:pb-6">
-                An expert operating model built for founders architecting
-                industry-defining catalysts. We provide specialized judgment and
-                capital strategy—not just advisory.
-              </p>
+              <SectionHeader
+                eyebrow="Why P36"
+                title="The P36 Advantage"
+                description="An expert operating model built for founders architecting industry-defining catalysts. We provide specialized judgment and capital strategy—not just advisory."
+              />
             </div>
           </div>
 
@@ -72,7 +68,7 @@ export function Advantage() {
             ))}
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

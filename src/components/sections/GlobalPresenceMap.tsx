@@ -1,8 +1,8 @@
 "use client";
 
+import { ButtonLink } from "@/components/ui/ButtonLink";
 import { geoNaturalEarth1, geoPath } from "d3-geo";
 import type { FeatureCollection, GeoJsonProperties } from "geojson";
-import Link from "next/link";
 import { useMemo } from "react";
 import { feature } from "topojson-client";
 import type { GeometryCollection } from "topojson-specification";
@@ -17,13 +17,57 @@ type CountryProps = GeoJsonProperties & {
 };
 
 const hubs = [
-  { name: "New York", lon: -74.006, lat: 40.7128, primary: true },
-  { name: "London", lon: -0.1276, lat: 51.5074, primary: true },
-  { name: "Miami", lon: -80.1918, lat: 25.7617, primary: false },
-  { name: "Singapore", lon: 103.8198, lat: 1.3521, primary: false },
+  {
+    name: "New York",
+    lon: -74.006,
+    lat: 40.7128,
+    primary: true,
+    labelOffset: { x: -52, y: -12 },
+  },
+  {
+    name: "London",
+    lon: -0.1276,
+    lat: 51.5074,
+    primary: true,
+    labelOffset: { x: -46, y: -12 },
+  },
+  {
+    name: "Miami",
+    lon: -80.1918,
+    lat: 25.7617,
+    primary: false,
+    labelOffset: { x: -30, y: 16 },
+  },
+  {
+    name: "Singapore",
+    lon: 103.8198,
+    lat: 1.3521,
+    primary: false,
+    labelOffset: { x: -40, y: -12 },
+  },
+  {
+    name: "Medellín",
+    lon: -75.5636,
+    lat: 6.2518,
+    primary: false,
+    labelOffset: { x: -44, y: 16 },
+  },
+  {
+    name: "San José, Costa Rica",
+    lon: -84.0907,
+    lat: 9.9281,
+    primary: false,
+    labelOffset: { x: -88, y: -14 },
+  },
+  {
+    name: "Lagos",
+    lon: 3.3792,
+    lat: 6.5244,
+    primary: false,
+    labelOffset: { x: -34, y: 16 },
+  },
 ] as const;
 
-/** Slightly stronger wash for core corridors (still subtle vs parchment). */
 const CORRIDOR_ISO = new Set([
   "US",
   "CA",
@@ -43,6 +87,9 @@ const CORRIDOR_ISO = new Set([
   "AU",
   "IN",
   "JP",
+  "CO",
+  "CR",
+  "NG",
 ]);
 
 function landFill(iso: string | undefined) {
@@ -91,16 +138,15 @@ export function GlobalPresenceMap() {
   }, []);
 
   return (
-    <div className="mt-20 border-t border-border-subtle pt-16 lg:mt-24 lg:pt-20">
-      <div className="mx-auto mb-10 max-w-2xl text-center lg:mb-12">
-        <h3 className="font-serif text-3xl font-semibold italic tracking-tight text-[#0A192F] sm:text-4xl">
+    <div className="mt-8 border-t border-border-subtle pt-8 lg:mt-10 lg:pt-10">
+      <div className="mx-auto mb-6 max-w-2xl text-center lg:mb-8">
+        <h3 className="font-serif text-3xl font-semibold italic tracking-tight text-navy-900 sm:text-4xl">
           Global presence
         </h3>
-        <div className="mx-auto mt-4 h-px w-12 bg-[#93846F]" aria-hidden />
+        <div className="mx-auto mt-4 h-px w-12 bg-gold" aria-hidden />
         <p className="mt-4 text-sm leading-relaxed text-navy-900/70">
-          Country boundaries from Natural Earth (110m)—styled to match P36
-          parchment, ink, and gold. Hubs mark where we coordinate capital and
-          partnerships.
+          Hubs where we coordinate capital, partnerships, and operating support
+          across key corridors.
         </p>
       </div>
 
@@ -109,7 +155,7 @@ export function GlobalPresenceMap() {
           viewBox={`0 0 ${VIEW_W} ${VIEW_H}`}
           className="h-auto w-full"
           role="img"
-          aria-label="World map with Natural Earth country boundaries and hub markers for New York, London, Miami, and Singapore."
+          aria-label="World map with hub markers for New York, London, Miami, Singapore, Medellín, San José Costa Rica, and Lagos."
         >
           <defs>
             <linearGradient
@@ -138,20 +184,15 @@ export function GlobalPresenceMap() {
 
           {hubPoints.map((hub) => {
             const r = hub.primary ? 5.5 : 4;
-            const labelOffset =
-              hub.name === "London"
-                ? { x: -46, y: -12 }
-                : hub.name === "New York"
-                  ? { x: -52, y: -12 }
-                  : hub.name === "Miami"
-                    ? { x: -30, y: 16 }
-                    : { x: -40, y: -12 };
+            const labelOffset = hub.labelOffset;
+            const labelFontSize =
+              hub.primary ? 12 : hub.name.length > 18 ? 10 : 11;
             return (
               <g key={hub.name} transform={`translate(${hub.x},${hub.y})`}>
                 <circle
                   r={r + 2.5}
                   fill="none"
-                  stroke="#93846f"
+                  stroke="#c5a059"
                   strokeOpacity={0.55}
                   strokeWidth={hub.primary ? 1.4 : 1}
                 />
@@ -169,7 +210,7 @@ export function GlobalPresenceMap() {
                   fill="#0a192f"
                   fillOpacity={0.72}
                   fontFamily="ui-serif, Georgia, 'Times New Roman', serif"
-                  fontSize={hub.primary ? 12 : 11}
+                  fontSize={labelFontSize}
                   fontStyle="italic"
                   fontWeight={600}
                   style={{ letterSpacing: "0.02em" }}
@@ -183,12 +224,9 @@ export function GlobalPresenceMap() {
       </div>
 
       <p className="mt-8 text-center">
-        <Link
-          href="/contact"
-          className="text-xs font-semibold uppercase tracking-[0.2em] text-navy-900/60 underline decoration-navy-900/20 underline-offset-4 transition-colors hover:text-navy-900 hover:decoration-navy-900/40"
-        >
+        <ButtonLink href="/contact" variant="primary" className="!text-[11px] !tracking-[0.2em]">
           Start a conversation
-        </Link>
+        </ButtonLink>
       </p>
     </div>
   );

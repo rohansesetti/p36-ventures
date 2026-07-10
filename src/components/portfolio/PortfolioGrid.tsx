@@ -103,6 +103,7 @@ export function PortfolioGrid() {
               <button
                 type="button"
                 onClick={() => setFilter(f)}
+                aria-pressed={active}
                 className={`uppercase tracking-[0.2em] transition-colors ${
                   active
                     ? "font-bold text-navy-900"

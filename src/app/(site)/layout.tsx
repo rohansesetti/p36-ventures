@@ -1,5 +1,4 @@
-import { CustomCursor } from "@/components/CustomCursor";
-import { StickyNav } from "@/components/StickyNav";
+import { SiteHeader } from "@/components/SiteHeader";
 import { Footer } from "@/components/sections/Footer";
 
 export default function SiteLayout({
@@ -8,10 +7,9 @@ export default function SiteLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="flex min-h-screen flex-1 flex-col">
-      <CustomCursor />
-      <StickyNav />
-      <div className="flex flex-1 flex-col pt-20">{children}</div>
+    <div className="relative flex min-h-screen flex-1 flex-col">
+      <SiteHeader />
+      <div className="flex flex-1 flex-col">{children}</div>
       <Footer />
     </div>
   );

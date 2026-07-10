@@ -1,16 +1,21 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { useSearchParams } from "next/navigation";
 
 const objectives = [
   "Capital Sourcing",
   "GTM Execution",
   "Structural Governance",
   "Exit Readiness",
+  "Transaction Audit",
 ] as const;
 
 export function ContactForm() {
+  const searchParams = useSearchParams();
+  const prefilledEmail = searchParams.get("email") ?? "";
   const [submitted, setSubmitted] = useState(false);
+  const [email, setEmail] = useState(prefilledEmail);
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -60,6 +65,8 @@ export function ContactForm() {
           type="email"
           required
           autoComplete="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           className={field}
         />
       </div>

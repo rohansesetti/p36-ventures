@@ -1,5 +1,7 @@
 "use client";
 
+import { Container } from "@/components/ui/Container";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 import { useState } from "react";
 
 const steps = [
@@ -33,21 +35,15 @@ export function Methodology() {
   return (
     <section
       id="lifecycle"
-      className="border-b border-border-subtle bg-background py-24 lg:py-32"
+      className="border-b border-border-subtle bg-background section-py"
     >
-      <div className="mx-auto max-w-6xl px-6 lg:px-8">
-        <div className="mb-16 max-w-2xl">
-          <p className="text-xs font-semibold uppercase tracking-widest text-navy-900/50">
-            Lifecycle
-          </p>
-          <h2 className="mt-4 text-4xl font-semibold tracking-tighter text-navy-900 sm:text-5xl">
-            P36 Lifecycle
-          </h2>
-          <p className="mt-4 text-sm leading-relaxed text-navy-900/85">
-            A modular framework we run with every engagement—repeatable stages,
-            institutional outputs, and clear handoffs between workstreams.
-          </p>
-        </div>
+      <Container>
+        <SectionHeader
+          eyebrow="Lifecycle"
+          title="P36 Lifecycle"
+          description="A modular framework we run with every engagement—repeatable stages, institutional outputs, and clear handoffs between workstreams."
+          className="mb-16"
+        />
 
         <div
           className="relative hidden md:block"
@@ -73,11 +69,11 @@ export function Methodology() {
                   className={`relative border-b border-border-subtle py-16 pl-16 transition-opacity duration-300 last:border-b-0 ${dim}`}
                   onMouseEnter={() => setHovered(index)}
                 >
-                  <span className="font-serif text-sm italic tabular-nums text-navy-900/45">
+                  <span className="font-mono text-[10px] font-bold uppercase tabular-nums tracking-[0.2em] text-gold">
                     Step {step.id}
                   </span>
                   <h3
-                    className={`mt-3 text-2xl font-light tracking-tight text-navy-900 transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+                    className={`mt-3 text-2xl font-light tracking-tight text-navy-900 transition-transform duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] ${
                       isHover ? "translate-x-1" : "translate-x-0"
                     }`}
                   >
@@ -108,7 +104,7 @@ export function Methodology() {
                   className={`w-[min(280px,82vw)] shrink-0 border-0.5 border-navy/10 bg-white p-6 shadow-[0_1px_3px_rgba(10,25,47,0.05)] transition-opacity duration-300 ${dim}`}
                   onMouseEnter={() => setHovered(index)}
                 >
-                  <span className="font-serif text-xs italic tabular-nums text-navy-900/45">
+                  <span className="font-mono text-[10px] font-bold uppercase tabular-nums tracking-[0.2em] text-gold">
                     Step {step.id}
                   </span>
                   <h3 className="mt-3 text-xl font-light tracking-tight text-navy-900 sm:text-2xl">
@@ -122,7 +118,7 @@ export function Methodology() {
             })}
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }
