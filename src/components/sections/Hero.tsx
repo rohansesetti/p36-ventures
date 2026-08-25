@@ -1,43 +1,40 @@
 import Link from "next/link";
 
 const stats = [
-  { num: "$200M+", desc: "Capital architected across active mandates" },
-  { num: "12", desc: "Ventures built or financed since founding" },
-  { num: "4", desc: "Cities — London, New York, Miami, Singapore" },
+  { num: "$200M+", desc: "Capital structured across active mandates" },
+  { num: "12", desc: "Mandates completed or currently in market" },
+  { num: "3", desc: "Delhi, New York, London" },
 ] as const;
 
 export function Hero() {
   return (
-    <section className="relative z-[1] flex min-h-screen flex-col justify-center pt-[120px]">
-      <div className="wrap w-full">
-        <p className="label-v2 mb-[26px]">
-          P36 Ventures — Venture Studio <em>&amp;</em> Capital Advisory
+    <section className="relative z-[1] pt-28 pb-8 lg:pt-32 lg:pb-10">
+      <div className="wrap">
+        <p className="font-sans text-[11px] font-medium uppercase tracking-[0.22em] text-ink-faint">
+          Capital advisory &amp; venture studio
         </p>
 
-        <h1 className="heading-serif max-w-[960px] text-[clamp(2.5rem,6.2vw,5.75rem)] font-light leading-[1.04]">
-          We build the company, <em className="font-light italic">or</em> we build
-          the round. Occasionally, both.
+        <h1 className="heading-serif mt-5 font-light uppercase leading-[0.88] tracking-[0.02em] text-[clamp(3.25rem,12vw,8.75rem)]">
+          <span className="block">Form.</span>
+          <span className="block text-accent">Raise.</span>
+          <span className="block text-pop">Scale.</span>
         </h1>
 
-        <p className="mt-8 max-w-[460px] text-[17px] font-light leading-[1.7] text-ink-soft">
-          A small studio and advisory practice for founders who need either a
-          company built from a blank page, or an institutional capital stack
-          engineered around one already in motion.
+        <p className="mt-7 max-w-[28rem] text-[16px] leading-[1.65] text-ink-soft">
+          We build the company and structure the capital — through close.
         </p>
 
-        <Link href="/contact" className="cta-link mt-9">
-          Start a conversation →
+        <Link href="/contact" className="cta-link mt-7">
+          Request a briefing →
         </Link>
 
-        <div className="mt-[110px] grid grid-cols-1 gap-[26px] border-t border-line pt-[34px] sm:grid-cols-3 sm:gap-10">
+        <div className="mt-14 grid grid-cols-1 gap-6 border-t border-line pt-8 sm:grid-cols-3 sm:gap-8">
           {stats.map((stat) => (
             <div key={stat.desc}>
-              <div className="heading-serif text-[clamp(1.75rem,3.4vw,2.625rem)] font-light">
+              <div className="heading-serif text-[clamp(1.5rem,2.8vw,2.125rem)] font-light">
                 {stat.num}
               </div>
-              <div className="mt-2 text-[12.5px] tracking-[0.03em] text-ink-faint">
-                {stat.desc}
-              </div>
+              <div className="mt-1.5 text-[12.5px] text-ink-faint">{stat.desc}</div>
             </div>
           ))}
         </div>

@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Fraunces, Inter } from "next/font/google";
+import { Fraunces, IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const plex = IBM_Plex_Sans({
+  variable: "--font-plex",
   subsets: ["latin"],
-  weight: ["300", "400", "500"],
+  weight: ["400", "500"],
 });
 
 const fraunces = Fraunces({
@@ -15,9 +15,9 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
-  title: "P36 Ventures — Venture Studio & Capital Advisory",
+  title: "P36 Ventures — Capital Advisory & Venture Studio",
   description:
-    "A small studio and advisory practice for founders who need either a company built from a blank page, or an institutional capital stack engineered around one already in motion.",
+    "P36 structures capital, diligence, and operating infrastructure for companies from formation through exit.",
 };
 
 export default function RootLayout({
@@ -28,9 +28,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${fraunces.variable} h-full scroll-smooth antialiased`}
+      className={`${plex.variable} ${fraunces.variable} h-full scroll-smooth antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-paper font-sans font-light text-ink antialiased">
+      <body className="min-h-full flex flex-col bg-paper font-sans font-normal text-ink antialiased">
         {children}
       </body>
     </html>

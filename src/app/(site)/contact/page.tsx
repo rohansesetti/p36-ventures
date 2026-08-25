@@ -7,23 +7,23 @@ import { Suspense } from "react";
 export const metadata: Metadata = {
   title: "Contact | P36 Ventures",
   description:
-    "Initialize a transaction audit or request a direct advisory briefing.",
+    "Request a briefing with P36 Ventures on a capital or studio mandate.",
 };
 
 export default function ContactPage() {
   return (
-    <main className="flex-1 bg-paper pt-[120px]">
+    <main className="flex-1 bg-paper pt-24">
       <header className="page-hero">
         <Container>
           <SectionHeader
             eyebrow="Contact"
-            title="Initialize a Transaction Audit."
-            description="We partner with a limited number of high-stakes ventures to ensure execution-level quality."
+            title="Request a briefing."
+            description="Describe the situation — stage, capital need, and timeline. We respond to qualified inquiries within two business days."
           />
         </Container>
       </header>
 
-      <Container className="py-16 lg:grid lg:grid-cols-12 lg:gap-16 lg:py-20">
+      <Container className="py-12 lg:grid lg:grid-cols-12 lg:gap-12 lg:py-16">
         <aside className="mb-12 lg:col-span-4 lg:mb-0">
           <div className="lg:sticky lg:top-28">
             <h2 className="text-[10px] font-semibold uppercase tracking-widest text-navy-900/45">
@@ -43,7 +43,7 @@ export default function ContactPage() {
             <p className="mt-3 text-sm leading-relaxed text-navy-900/85">
               Tuesday &amp; Thursday, 09:00–12:00 GMT
               <br />
-              Intro calls by appointment only.
+              Briefings by appointment.
             </p>
             <p className="mt-4 text-xs leading-relaxed text-navy-900/55">
               We respond to qualified inquiries within two business days.

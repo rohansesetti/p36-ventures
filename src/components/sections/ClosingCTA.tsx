@@ -1,26 +1,35 @@
+import Link from "next/link";
 import { Reveal } from "@/components/Reveal";
+import { PhotoTint } from "@/components/ui/PhotoTint";
 
 export function ClosingCTA() {
   return (
-    <section id="contact" className="section-v2 relative z-[1] bg-pop text-paper">
-      <div className="wrap text-left">
-        <Reveal>
-          <p className="label-v2 mb-[26px] !text-paper/55">Next step</p>
-        </Reveal>
-        <Reveal>
-          <h2 className="heading-serif max-w-[900px] text-[clamp(2.125rem,5.6vw,4.125rem)] font-light leading-[1.1] text-paper">
-            Bring us the idea,{" "}
-            <em className="font-light italic text-accent">
-              or bring us the round.
-            </em>{" "}
-            Either way, we start with the same conversation.
-          </h2>
-        </Reveal>
-        <Reveal>
-          <a href="mailto:hello@p36ventures.com" className="cta-link-light mt-11">
-            hello@p36ventures.com →
-          </a>
-        </Reveal>
+    <section id="contact" className="relative z-[1] border-t border-line">
+      <div className="wrap grid grid-cols-1 items-stretch gap-0 lg:grid-cols-2">
+        <div className="flex flex-col justify-center py-16 pr-0 lg:py-24 lg:pr-16">
+          <Reveal>
+            <p className="heading-serif max-w-[28rem] text-[clamp(1.5rem,3vw,2.25rem)] font-light leading-[1.3]">
+              Mandates begin with a briefing.{" "}
+              <span className="text-ink-soft">
+                We take a limited number each year.
+              </span>
+            </p>
+          </Reveal>
+          <Reveal>
+            <Link href="/contact" className="cta-link mt-8">
+              Request a briefing →
+            </Link>
+          </Reveal>
+        </div>
+
+        <PhotoTint
+          src="/photos/fields/briefing.jpg"
+          alt="A sunlit conference room looking onto the street"
+          tint="gold"
+          revealOnHover={false}
+          sizes="(min-width: 1024px) 50vw, 100vw"
+          className="aspect-[16/11] w-full lg:aspect-auto lg:h-full lg:min-h-[28rem]"
+        />
       </div>
     </section>
   );

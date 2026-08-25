@@ -28,7 +28,7 @@ export function Process() {
     <section id="process" className="section-v2 relative z-[1]">
       <div className="wrap">
         <Reveal>
-          <p className="label-v2 mb-[26px]">How a mandate runs</p>
+          <p className="label-v2 mb-5">How a mandate runs</p>
         </Reveal>
 
         <Reveal>
@@ -36,7 +36,7 @@ export function Process() {
             {steps.map((step, i) => (
               <div
                 key={step.rn}
-                className={`grid grid-cols-[40px_1fr] gap-[30px] border-t border-line py-7 md:grid-cols-[70px_1fr_2fr] ${
+                className={`grid grid-cols-[40px_1fr] gap-5 border-t border-line py-5 md:grid-cols-[70px_1fr_2fr] ${
                   i === steps.length - 1 ? "border-b border-line" : ""
                 }`}
               >
