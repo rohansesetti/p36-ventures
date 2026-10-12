@@ -23,7 +23,6 @@ export default function MembershipPage() {
       <PageHero
         eyebrow="The P36 Fellowship"
         title="Membership."
-        lead="What it covers, what it costs, and how it is reimbursed."
       />
 
       <section className="section-v2">
@@ -59,8 +58,7 @@ export default function MembershipPage() {
                   </span>
                 </p>
                 <p className={body}>
-                  Activated after selection, never before. You are never asked
-                  to pay to apply.
+                  Activated after selection. Nothing to pay to apply.
                 </p>
               </div>
             </div>
@@ -73,9 +71,8 @@ export default function MembershipPage() {
               <div className="min-w-0">
                 <h2 className={h2}>Reimbursement</h2>
                 <p className={body}>
-                  Reimbursed in full for fellows invited to join a P36 desk.
-                  Desk seats are filled by referral or offered to exceptional
-                  candidates; for fellows, invitations follow the Week 6 review.
+                  Reimbursed in full if you are invited to a P36 desk after the
+                  Week 6 review.
                 </p>
                 <div className="mt-6 overflow-x-auto">
                   <table className="w-full min-w-[34rem] border-collapse text-left text-[13.5px] leading-[1.55]">
@@ -109,9 +106,8 @@ export default function MembershipPage() {
                   </table>
                 </div>
                 <p className="mt-5 text-[14px] leading-[1.7] text-ink-soft">
-                  Meeting every threshold is the minimum for consideration. Desk
-                  invitations are rare, and meeting the criteria does not
-                  guarantee one.
+                  Meeting the criteria is the minimum. Invitations are rare and
+                  not guaranteed.
                 </p>
               </div>
             </div>
@@ -132,8 +128,7 @@ export default function MembershipPage() {
               <div>
                 <h2 className={h2}>If you are not invited to a desk</h2>
                 <p className={body}>
-                  You keep the modelling library and the certificate. The
-                  membership is not reimbursed.
+                  You keep the templates and certificate. No reimbursement.
                 </p>
               </div>
             </div>

@@ -1,13 +1,10 @@
 import { createFellowshipApplication } from "@/lib/notion";
-import { workstreams } from "@/data/fellowship";
-
-const STATUSES = ["Student", "Working", "Other"];
-const HOURS = ["Under 10", "10–15", "15–20", "20+"];
-const SOURCES = ["LinkedIn", "University", "Referral", "P36 website", "Other"];
-const WHY_LIMIT = 500;
+import { HOURS, LETTER_LIMIT, workstreams } from "@/data/fellowship";
 
 const str = (v: unknown, max = 300) =>
   typeof v === "string" ? v.trim().slice(0, max) : "";
+
+const isUrl = (v: string) => /^https?:\/\/.+/.test(v);
 
 export async function POST(request: Request) {
   let body: Record<string, unknown>;
@@ -18,19 +15,15 @@ export async function POST(request: Request) {
   }
 
   // Honeypot: real people never see or fill this field.
-  if (str(body.website)) {
-    return Response.json({ ok: true });
-  }
+  if (str(body.website)) return Response.json({ ok: true });
 
   const name = str(body.name, 200);
   const email = str(body.email, 200);
   const country = str(body.country, 100);
-  const status = str(body.status, 50);
-  const organisation = str(body.organisation, 200);
-  const linkedin = str(body.linkedin, 300);
-  const why = typeof body.why === "string" ? body.why.trim() : "";
+  const linkedin = str(body.linkedin, 500);
+  const resume = str(body.resume, 1000);
+  const letter = typeof body.letter === "string" ? body.letter.trim() : "";
   const hours = str(body.hours, 50);
-  const source = str(body.source, 50);
   const streamIds = Array.isArray(body.streams)
     ? body.streams.filter((s): s is string => typeof s === "string")
     : [];
@@ -42,13 +35,12 @@ export async function POST(request: Request) {
     !name ||
     !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ||
     !country ||
-    !STATUSES.includes(status) ||
-    !/^https?:\/\/.+/.test(linkedin) ||
+    !isUrl(linkedin) ||
+    !isUrl(resume) ||
     streamTitles.length === 0 ||
-    !why ||
-    why.length > WHY_LIMIT ||
-    !HOURS.includes(hours) ||
-    (source !== "" && !SOURCES.includes(source)) ||
+    !letter ||
+    letter.length > LETTER_LIMIT ||
+    !(HOURS as readonly string[]).includes(hours) ||
     body.ackMembership !== true ||
     body.ackPrivacy !== true;
 
@@ -64,13 +56,11 @@ export async function POST(request: Request) {
       name,
       email,
       country,
-      status,
-      organisation,
       linkedin,
+      resume,
       workstreams: streamTitles,
-      why,
+      letter,
       hours,
-      source,
       membershipAcknowledged: true,
       alumniOptIn: body.alumniOptIn === true,
     });

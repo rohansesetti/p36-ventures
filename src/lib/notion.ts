@@ -7,13 +7,11 @@
  *   Name                      Title
  *   Email                     Email
  *   Country                   Text
- *   Status                    Select
- *   Organisation              Text
  *   LinkedIn                  URL
+ *   Resume                    URL
  *   Workstreams               Multi-select
- *   Why private markets       Text
+ *   Cover letter              Text
  *   Hours a week              Select
- *   Source                    Select
  *   Membership acknowledged   Checkbox
  *   Alumni opt-in             Checkbox
  *   Stage                     Select
@@ -26,22 +24,23 @@ export type FellowshipApplication = {
   name: string;
   email: string;
   country: string;
-  status: string;
-  organisation: string;
   linkedin: string;
+  resume: string;
   workstreams: string[];
-  why: string;
+  letter: string;
   hours: string;
-  source: string;
   membershipAcknowledged: boolean;
   alumniOptIn: boolean;
 };
 
-const text = (value: string) => ({
-  rich_text: value ? [{ type: "text", text: { content: value.slice(0, 2000) } }] : [],
-});
-
-const select = (value: string) => (value ? { select: { name: value } } : { select: null });
+/** Notion caps each text block at 2,000 characters, so long text is split. */
+const text = (value: string) => {
+  const chunks: string[] = [];
+  for (let i = 0; i < value.length; i += 2000) chunks.push(value.slice(i, i + 2000));
+  return {
+    rich_text: chunks.map((content) => ({ type: "text", text: { content } })),
+  };
+};
 
 export async function createFellowshipApplication(app: FellowshipApplication) {
   const token = process.env.NOTION_TOKEN;
@@ -64,13 +63,11 @@ export async function createFellowshipApplication(app: FellowshipApplication) {
         Name: { title: [{ type: "text", text: { content: app.name.slice(0, 200) } }] },
         Email: { email: app.email },
         Country: text(app.country),
-        Status: select(app.status),
-        Organisation: text(app.organisation),
         LinkedIn: { url: app.linkedin },
+        Resume: { url: app.resume },
         Workstreams: { multi_select: app.workstreams.map((name) => ({ name })) },
-        "Why private markets": text(app.why),
-        "Hours a week": select(app.hours),
-        Source: select(app.source),
+        "Cover letter": text(app.letter),
+        "Hours a week": { select: { name: app.hours } },
         "Membership acknowledged": { checkbox: app.membershipAcknowledged },
         "Alumni opt-in": { checkbox: app.alumniOptIn },
         Stage: { select: { name: "New" } },

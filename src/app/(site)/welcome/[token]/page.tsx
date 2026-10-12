@@ -66,9 +66,8 @@ export default async function WelcomePage({ params }: Props) {
               <span className="ml-3 font-sans text-[14px] text-ink-faint">one-time</span>
             </p>
             <p className="mt-5 max-w-[26rem] text-[14px] leading-[1.7] text-ink-soft">
-              Reimbursed in full if you are invited to join a P36 desk. Desk
-              invitations are rare. Either way, you keep the templates and the
-              certificate.
+              Reimbursed in full if you are invited to a desk. You keep the
+              templates and certificate either way.
             </p>
             <Link
               href="/opportunities/fellowship/membership#criteria"

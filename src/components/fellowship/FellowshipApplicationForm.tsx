@@ -3,7 +3,13 @@
 import Link from "next/link";
 import { FormEvent, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { cohort, membership, workstreams } from "@/data/fellowship";
+import {
+  HOURS,
+  LETTER_LIMIT,
+  cohort,
+  membership,
+  workstreams,
+} from "@/data/fellowship";
 
 const field =
   "mt-2 w-full border-0 border-b border-line bg-transparent py-2.5 text-[15px] text-ink outline-none transition-colors placeholder:text-ink-faint focus:border-ink";
@@ -11,17 +17,13 @@ const field =
 const label =
   "block text-[11px] font-medium uppercase tracking-[0.14em] text-ink-faint";
 
-const selectClass = `${field} cursor-pointer appearance-none bg-[length:12px] bg-[right_0_top_50%] bg-no-repeat pr-8`;
-
 const selectStyle = {
   backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 12 8'%3E%3Cpath stroke='%231A1A1A' stroke-opacity='0.45' stroke-linecap='round' stroke-width='1' d='m1 1.5 5 4 5-4'/%3E%3C/svg%3E")`,
 };
 
-const statuses = ["Student", "Working", "Other"] as const;
-const hours = ["Under 10", "10–15", "15–20", "20+"] as const;
-const sources = ["LinkedIn", "University", "Referral", "P36 website", "Other"] as const;
-
-const WHY_LIMIT = 500;
+const errorText = "text-[#9b2c2c]";
+const sendFail =
+  "The application could not be sent. Try again, or email hello@p36ventures.com.";
 
 type Errors = Partial<Record<string, string>>;
 
@@ -29,7 +31,7 @@ export function FellowshipApplicationForm() {
   const searchParams = useSearchParams();
   const prefill = searchParams.get("stream") ?? "";
   const [submitted, setSubmitted] = useState(false);
-  const [why, setWhy] = useState("");
+  const [letter, setLetter] = useState("");
   const [errors, setErrors] = useState<Errors>({});
   const [sending, setSending] = useState(false);
   const [serverError, setServerError] = useState("");
@@ -39,28 +41,29 @@ export function FellowshipApplicationForm() {
     e.preventDefault();
     if (sending) return;
     setServerError("");
+
     const data = new FormData(e.currentTarget);
+    const get = (k: string) => String(data.get(k) ?? "").trim();
     const next: Errors = {};
 
-    if (!String(data.get("name") ?? "").trim()) next.name = "Enter your full name.";
-    const email = String(data.get("email") ?? "").trim();
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
-      next.email = "Enter an email address in the format name@example.com.";
-    if (!String(data.get("country") ?? "").trim()) next.country = "Enter your country.";
-    if (!data.get("status")) next.status = "Select your current status.";
-    const linkedin = String(data.get("linkedin") ?? "").trim();
-    if (!/^https?:\/\/.+/.test(linkedin))
+    if (!get("name")) next.name = "Enter your full name.";
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(get("email")))
+      next.email = "Enter a valid email address.";
+    if (!get("country")) next.country = "Enter your country.";
+    if (!/^https?:\/\/.+/.test(get("linkedin")))
       next.linkedin = "Enter your LinkedIn URL, starting with https://.";
+    if (!/^https?:\/\/.+/.test(get("resume")))
+      next.resume = "Enter a link to your resume, starting with https://.";
     if (data.getAll("streams").length === 0)
       next.streams = "Select at least one workstream.";
-    if (!why.trim()) next.why = "Tell us why private markets.";
-    if (why.length > WHY_LIMIT)
-      next.why = `Keep this to ${WHY_LIMIT} characters or fewer.`;
-    if (!data.get("hours")) next.hours = "Select the hours you can commit.";
+    if (!letter.trim()) next.letter = "Add a cover letter.";
+    if (letter.length > LETTER_LIMIT)
+      next.letter = `Keep the cover letter to ${LETTER_LIMIT.toLocaleString()} characters.`;
+    if (!get("hours")) next.hours = "Select the hours you can commit.";
     if (!data.get("ack-membership"))
-      next["ack-membership"] = "Confirm you understand the Fellowship is unpaid and the membership terms.";
+      next["ack-membership"] = "Confirm the membership terms.";
     if (!data.get("ack-privacy"))
-      next["ack-privacy"] = "Confirm you have read the privacy notice.";
+      next["ack-privacy"] = "Confirm the privacy notice.";
 
     setErrors(next);
     if (Object.keys(next).length > 0) {
@@ -74,35 +77,28 @@ export function FellowshipApplicationForm() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          name: data.get("name"),
-          email,
-          country: data.get("country"),
-          status: data.get("status"),
-          organisation: data.get("organisation"),
-          linkedin,
+          name: get("name"),
+          email: get("email"),
+          country: get("country"),
+          linkedin: get("linkedin"),
+          resume: get("resume"),
           streams: data.getAll("streams"),
-          why,
-          hours: data.get("hours"),
-          source: data.get("source") ?? "",
+          letter,
+          hours: get("hours"),
           ackMembership: data.get("ack-membership") === "on",
           ackPrivacy: data.get("ack-privacy") === "on",
           alumniOptIn: data.get("alumni-optin") === "on",
-          website: data.get("website") ?? "",
+          website: get("website"),
         }),
       });
       if (!res.ok) {
         const payload = await res.json().catch(() => null);
-        setServerError(
-          payload?.error ??
-            "The application could not be sent. Try again, or email hello@p36ventures.com.",
-        );
+        setServerError(payload?.error ?? sendFail);
         return;
       }
       setSubmitted(true);
     } catch {
-      setServerError(
-        "The application could not be sent. Check your connection and try again.",
-      );
+      setServerError(sendFail);
     } finally {
       setSending(false);
     }
@@ -115,8 +111,8 @@ export function FellowshipApplicationForm() {
           Application received.
         </p>
         <p className="mt-4 text-[15px] leading-[1.7] text-ink-soft">
-          We will email a video screen invitation within{" "}
-          {cohort.screenReplyDays} days.
+          If shortlisted, you will hear from us within {cohort.replyDays} days
+          to arrange an interview.
         </p>
       </div>
     );
@@ -124,30 +120,29 @@ export function FellowshipApplicationForm() {
 
   const err = (key: string) =>
     errors[key] ? (
-      <p id={`${key}-error`} className="mt-2 text-[13px] text-[#9b2c2c]">
+      <p id={`${key}-error`} className={`mt-2 text-[13px] ${errorText}`}>
         {errors[key]}
       </p>
     ) : null;
 
-  const describedBy = (key: string) => (errors[key] ? `${key}-error` : undefined);
+  const aria = (key: string) => ({
+    "aria-invalid": !!errors[key],
+    "aria-describedby": errors[key] ? `${key}-error` : undefined,
+  });
+
   const errorCount = Object.keys(errors).length;
 
   return (
     <form onSubmit={handleSubmit} noValidate className="relative max-w-[36rem] space-y-8">
       {errorCount > 0 ? (
-        <div
-          ref={summaryRef}
-          tabIndex={-1}
-          role="alert"
-          className="border-l-2 border-[#9b2c2c] pl-4 outline-none"
-        >
+        <div ref={summaryRef} tabIndex={-1} role="alert" className="border-l-2 border-[#9b2c2c] pl-4 outline-none">
           <p className="text-[14px] text-ink">
             {errorCount === 1 ? "One field needs attention." : `${errorCount} fields need attention.`}
           </p>
           <ul className="mt-2 space-y-1">
             {Object.entries(errors).map(([key, msg]) => (
               <li key={key}>
-                <a href={`#f-${key}`} className="text-[13px] text-[#9b2c2c] underline underline-offset-2">
+                <a href={`#f-${key}`} className={`text-[13px] underline underline-offset-2 ${errorText}`}>
                   {msg}
                 </a>
               </li>
@@ -158,55 +153,44 @@ export function FellowshipApplicationForm() {
 
       <div>
         <label htmlFor="f-name" className={label}>Full name</label>
-        <input id="f-name" name="name" type="text" autoComplete="name" className={field}
-          aria-invalid={!!errors.name} aria-describedby={describedBy("name")} />
+        <input id="f-name" name="name" type="text" autoComplete="name" className={field} {...aria("name")} />
         {err("name")}
-      </div>
-
-      <div>
-        <label htmlFor="f-email" className={label}>Email</label>
-        <input id="f-email" name="email" type="email" autoComplete="email" className={field}
-          aria-invalid={!!errors.email} aria-describedby={describedBy("email")} />
-        {err("email")}
       </div>
 
       <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
         <div>
-          <label htmlFor="f-country" className={label}>Country</label>
-          <input id="f-country" name="country" type="text" autoComplete="country-name" className={field}
-            aria-invalid={!!errors.country} aria-describedby={describedBy("country")} />
-          {err("country")}
+          <label htmlFor="f-email" className={label}>Email</label>
+          <input id="f-email" name="email" type="email" autoComplete="email" className={field} {...aria("email")} />
+          {err("email")}
         </div>
         <div>
-          <label htmlFor="f-status" className={label}>Current status</label>
-          <select id="f-status" name="status" defaultValue="" className={selectClass} style={selectStyle}
-            aria-invalid={!!errors.status} aria-describedby={describedBy("status")}>
-            <option value="" disabled>Select one</option>
-            {statuses.map((s) => <option key={s} value={s}>{s}</option>)}
-          </select>
-          {err("status")}
+          <label htmlFor="f-country" className={label}>Country</label>
+          <input id="f-country" name="country" type="text" autoComplete="country-name" className={field} {...aria("country")} />
+          {err("country")}
         </div>
-      </div>
-
-      <div>
-        <label htmlFor="f-org" className={label}>University or employer (optional)</label>
-        <input id="f-org" name="organisation" type="text" autoComplete="organization" className={field} />
       </div>
 
       <div>
         <label htmlFor="f-linkedin" className={label}>LinkedIn</label>
-        <input id="f-linkedin" name="linkedin" type="url" placeholder="https://" autoComplete="url" className={field}
-          aria-invalid={!!errors.linkedin} aria-describedby={describedBy("linkedin")} />
+        <input id="f-linkedin" name="linkedin" type="url" placeholder="https://" autoComplete="url" className={field} {...aria("linkedin")} />
         {err("linkedin")}
       </div>
 
-      <fieldset id="f-streams" tabIndex={-1} aria-describedby={describedBy("streams")} className="outline-none">
-        <legend className={label}>Workstreams of interest</legend>
+      <div>
+        <label htmlFor="f-resume" className={label}>Resume link</label>
+        <input id="f-resume" name="resume" type="url" placeholder="https://" className={field} {...aria("resume")} />
+        <p className="mt-2 text-[12.5px] text-ink-faint">
+          A shareable PDF link (Google Drive, Dropbox or similar), viewable by anyone with the link.
+        </p>
+        {err("resume")}
+      </div>
+
+      <fieldset id="f-streams" tabIndex={-1} className="outline-none" {...aria("streams")}>
+        <legend className={label}>Workstreams</legend>
         <div className="mt-3 grid grid-cols-1 gap-x-6 sm:grid-cols-2">
           {workstreams.map((ws) => (
             <label key={ws.id} className="flex cursor-pointer items-center gap-3 border-b border-line py-3 text-[14.5px] text-ink">
-              <input type="checkbox" name="streams" value={ws.id} defaultChecked={prefill === ws.id}
-                className="h-4 w-4 accent-[var(--ink)]" />
+              <input type="checkbox" name="streams" value={ws.id} defaultChecked={prefill === ws.id} className="h-4 w-4 accent-[var(--ink)]" />
               {ws.title}
             </label>
           ))}
@@ -216,50 +200,37 @@ export function FellowshipApplicationForm() {
 
       <div>
         <div className="flex items-baseline justify-between gap-4">
-          <label htmlFor="f-why" className={label}>Why private markets?</label>
-          <span className={`text-[12px] ${why.length > WHY_LIMIT ? "text-[#9b2c2c]" : "text-ink-faint"}`} aria-live="polite">
-            {why.length} / {WHY_LIMIT}
+          <label htmlFor="f-letter" className={label}>Cover letter</label>
+          <span className={`text-[12px] ${letter.length > LETTER_LIMIT ? errorText : "text-ink-faint"}`} aria-live="polite">
+            {letter.length.toLocaleString()} / {LETTER_LIMIT.toLocaleString()}
           </span>
         </div>
-        <textarea id="f-why" name="why" rows={5} value={why} onChange={(e) => setWhy(e.target.value)}
-          placeholder="The work you have already done and what you want to learn."
-          className={`${field} resize-y`} aria-invalid={!!errors.why} aria-describedby={describedBy("why")} />
-        {err("why")}
+        <textarea id="f-letter" name="letter" rows={9} value={letter} onChange={(ev) => setLetter(ev.target.value)}
+          className={`${field} resize-y`} {...aria("letter")} />
+        {err("letter")}
       </div>
 
-      <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
-        <div>
-          <label htmlFor="f-hours" className={label}>Hours a week</label>
-          <select id="f-hours" name="hours" defaultValue="" className={selectClass} style={selectStyle}
-            aria-invalid={!!errors.hours} aria-describedby={describedBy("hours")}>
-            <option value="" disabled>Select one</option>
-            {hours.map((h) => <option key={h} value={h}>{h}</option>)}
-          </select>
-          {err("hours")}
-        </div>
-        <div>
-          <label htmlFor="f-source" className={label}>How you heard about us</label>
-          <select id="f-source" name="source" defaultValue="" className={selectClass} style={selectStyle}>
-            <option value="" disabled>Select one</option>
-            {sources.map((s) => <option key={s} value={s}>{s}</option>)}
-          </select>
-        </div>
+      <div className="sm:max-w-[16rem]">
+        <label htmlFor="f-hours" className={label}>Hours a week</label>
+        <select id="f-hours" name="hours" defaultValue=""
+          className={`${field} cursor-pointer appearance-none bg-[length:12px] bg-[right_0_top_50%] bg-no-repeat pr-8`}
+          style={selectStyle} {...aria("hours")}>
+          <option value="" disabled>Select one</option>
+          {HOURS.map((h) => <option key={h} value={h}>{h}</option>)}
+        </select>
+        {err("hours")}
       </div>
 
       <div className="space-y-4 border-t border-line pt-8">
         <div>
           <label className="flex cursor-pointer items-start gap-3 text-[14px] leading-[1.6] text-ink-soft">
-            <input id="f-ack-membership" type="checkbox" name="ack-membership"
-              className="mt-1 h-4 w-4 shrink-0 accent-[var(--ink)]"
-              aria-invalid={!!errors["ack-membership"]} aria-describedby={describedBy("ack-membership")} />
+            <input id="f-ack-membership" type="checkbox" name="ack-membership" className="mt-1 h-4 w-4 shrink-0 accent-[var(--ink)]" {...aria("ack-membership")} />
             <span>
-              I understand the Fellowship is unpaid and that selected fellows
-              activate a {membership.price} membership (
-              <Link href="/opportunities/fellowship/membership" target="_blank" rel="noopener"
-                className="text-ink underline underline-offset-2">
-                how membership works
+              I understand the Fellowship is unpaid and selected fellows activate a {membership.price}{" "}
+              <Link href="/opportunities/fellowship/membership" target="_blank" rel="noopener" className="text-ink underline underline-offset-2">
+                membership
               </Link>
-              ).
+              .
             </span>
           </label>
           {err("ack-membership")}
@@ -267,9 +238,7 @@ export function FellowshipApplicationForm() {
 
         <div>
           <label className="flex cursor-pointer items-start gap-3 text-[14px] leading-[1.6] text-ink-soft">
-            <input id="f-ack-privacy" type="checkbox" name="ack-privacy"
-              className="mt-1 h-4 w-4 shrink-0 accent-[var(--ink)]"
-              aria-invalid={!!errors["ack-privacy"]} aria-describedby={describedBy("ack-privacy")} />
+            <input id="f-ack-privacy" type="checkbox" name="ack-privacy" className="mt-1 h-4 w-4 shrink-0 accent-[var(--ink)]" {...aria("ack-privacy")} />
             <span>
               I have read the{" "}
               <Link href="/privacy" target="_blank" rel="noopener" className="text-ink underline underline-offset-2">
@@ -283,7 +252,7 @@ export function FellowshipApplicationForm() {
 
         <label className="flex cursor-pointer items-start gap-3 text-[14px] leading-[1.6] text-ink-soft">
           <input type="checkbox" name="alumni-optin" className="mt-1 h-4 w-4 shrink-0 accent-[var(--ink)]" />
-          <span>Include my profile in the P36 alumni network shared with partner firms (optional).</span>
+          <span>Share my profile with partner firms (optional).</span>
         </label>
       </div>
 
@@ -294,17 +263,13 @@ export function FellowshipApplicationForm() {
       </div>
 
       {serverError ? (
-        <p role="alert" className="border-l-2 border-[#9b2c2c] pl-4 text-[14px] text-[#9b2c2c]">
+        <p role="alert" className={`border-l-2 border-[#9b2c2c] pl-4 text-[14px] ${errorText}`}>
           {serverError}
         </p>
       ) : null}
 
-      <button
-        type="submit"
-        disabled={sending}
-        aria-busy={sending}
-        className="cta-link mt-2 cursor-pointer border-x-0 border-t-0 bg-transparent disabled:cursor-wait disabled:opacity-50"
-      >
+      <button type="submit" disabled={sending} aria-busy={sending}
+        className="cta-link mt-2 cursor-pointer border-x-0 border-t-0 bg-transparent disabled:cursor-wait disabled:opacity-50">
         {sending ? "Sending…" : "Submit application →"}
       </button>
     </form>
