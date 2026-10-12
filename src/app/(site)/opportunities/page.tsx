@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
+import Link from "next/link";
 import { PageHero } from "@/components/ui/PageHero";
+import { PhotoTint } from "@/components/ui/PhotoTint";
 import { OpportunityForm } from "@/components/contact/OpportunityForm";
 import { opportunities } from "@/data/opportunities";
 
@@ -16,7 +18,7 @@ export default function OpportunitiesPage() {
       <PageHero
         eyebrow="Opportunities"
         title="Open seats."
-        lead="Four files. Delhi, New York, London. Apply to one — we keep the book short."
+        lead="Four commission-based desks across Delhi, New York and London. Seats are filled by referral or offered to exceptional candidates — we keep the book short."
       />
 
       <section className="section-v2">
@@ -53,6 +55,32 @@ export default function OpportunitiesPage() {
               </li>
             ))}
           </ul>
+        </div>
+      </section>
+
+      <section className="relative z-[1] border-t border-line">
+        <div className="wrap grid grid-cols-1 items-stretch gap-0 lg:grid-cols-2">
+          <div className="flex flex-col justify-center py-16 pr-0 lg:py-20 lg:pr-16">
+            <p className="label-v2 mb-5">Programme</p>
+            <h2 className="heading-serif max-w-[18ch] text-[clamp(1.5rem,2.8vw,2.125rem)] font-light leading-[1.2]">
+              The P36 Fellowship.
+            </h2>
+            <p className="mt-5 max-w-[28rem] text-[14.5px] leading-[1.7] text-ink-soft">
+              Six weeks on live files. Cohort-based, unpaid, reviewed by the
+              core team.
+            </p>
+            <Link href="/opportunities/fellowship" className="cta-link mt-6">
+              About the Fellowship →
+            </Link>
+          </div>
+          <PhotoTint
+            src="/photos/fields/briefing.jpg"
+            alt="A sunlit conference room looking onto the street"
+            tint="green"
+            revealOnHover={false}
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            className="aspect-[16/11] w-full lg:aspect-auto lg:h-full lg:min-h-[22rem]"
+          />
         </div>
       </section>
 
