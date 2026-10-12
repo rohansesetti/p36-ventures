@@ -5,10 +5,10 @@ import { FaqList } from "@/components/fellowship/FaqList";
 import { LiveFile } from "@/components/fellowship/LiveFile";
 import {
   cohort,
-  doesNotSuit,
   faqs,
   fellowshipSteps,
   membershipIncludes,
+  stats,
   suits,
   workstreams,
 } from "@/data/fellowship";
@@ -16,7 +16,7 @@ import {
 export const metadata: Metadata = {
   title: "The Fellowship | P36 Ventures",
   description:
-    "Six weeks on live files. A cohort-based private markets fellowship, reviewed by the P36 core team.",
+    "Six weeks on live mandates. A cohort-based private markets fellowship, reviewed by the P36 core team.",
 };
 
 const sectionTitle =
@@ -31,7 +31,7 @@ export default function FellowshipPage() {
             <div className="lg:col-span-7">
               <p className="label-v2 mb-5">The P36 Fellowship</p>
               <h1 className="heading-serif max-w-[16ch] text-[clamp(2.25rem,5.2vw,4rem)] font-light leading-[1.06]">
-                Six weeks on live files.
+                Six weeks on live mandates.
               </h1>
               <p className="mt-6 max-w-[34rem] text-[16px] font-light leading-[1.7] text-ink-soft">
                 You draft the work. The core team reviews every line.
@@ -42,12 +42,27 @@ export default function FellowshipPage() {
                 Apply →
               </Link>
               <p className="text-[13px] leading-[1.6] text-ink-faint">
-                Unpaid. {cohort.name} begins {cohort.startDate}.
+                {cohort.admissions}.
                 <br />
-                {cohort.places} places.
+                {cohort.name} closes {cohort.closeDate}.
               </p>
             </div>
           </div>
+
+          {stats.some((s) => s.value) ? (
+            <dl className="mt-12 grid grid-cols-1 gap-6 border-t border-line pt-8 sm:grid-cols-3 sm:gap-8">
+              {stats
+                .filter((s) => s.value)
+                .map((s) => (
+                  <div key={s.label} className="flex flex-col-reverse">
+                    <dt className="mt-1.5 text-[12.5px] text-ink-faint">{s.label}</dt>
+                    <dd className="heading-serif text-[clamp(1.5rem,2.8vw,2.125rem)] font-light">
+                      {s.value}
+                    </dd>
+                  </div>
+                ))}
+            </dl>
+          ) : null}
 
           <div className="mt-12 lg:mt-16 lg:ml-[8.333%]">
             <LiveFile />
@@ -173,31 +188,16 @@ export default function FellowshipPage() {
             <p className="label-v2 mb-5">Fit</p>
             <h2 className={`${sectionTitle} max-w-[14ch]`}>Who it suits.</h2>
           </div>
-          <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:col-span-7 lg:col-start-6">
-            <ul className="flex flex-col" aria-label="It suits">
-              {suits.map((s) => (
-                <li
-                  key={s}
-                  className="border-t border-line py-3 text-[14px] leading-[1.6] text-ink last:border-b"
-                >
-                  {s}
-                </li>
-              ))}
-            </ul>
-            <div>
-              <p className="label-v2 mb-4">Not for</p>
-              <ul className="flex flex-col">
-                {doesNotSuit.map((s) => (
-                  <li
-                    key={s}
-                    className="border-t border-line py-3 text-[14px] leading-[1.6] text-ink-soft last:border-b"
-                  >
-                    {s}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+          <ul className="flex flex-col lg:col-span-7 lg:col-start-6" aria-label="It suits">
+            {suits.map((s) => (
+              <li
+                key={s}
+                className="border-t border-line py-3.5 text-[15px] leading-[1.6] text-ink last:border-b"
+              >
+                {s}
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
@@ -218,7 +218,7 @@ export default function FellowshipPage() {
         <div className="wrap grid grid-cols-1 items-stretch gap-0 lg:grid-cols-2">
           <div className="flex flex-col justify-center py-16 pr-0 lg:py-24 lg:pr-16">
             <p className="heading-serif max-w-[24rem] text-[clamp(1.5rem,3vw,2.25rem)] font-light leading-[1.3]">
-              Applications close {cohort.closeDate}.
+              {cohort.name} closes {cohort.closeDate}.
             </p>
             <Link
               href="/opportunities/fellowship/apply"

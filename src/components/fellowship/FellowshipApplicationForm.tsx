@@ -7,7 +7,6 @@ import {
   HOURS,
   LETTER_LIMIT,
   cohort,
-  membership,
   workstreams,
 } from "@/data/fellowship";
 
@@ -226,9 +225,9 @@ export function FellowshipApplicationForm() {
           <label className="flex cursor-pointer items-start gap-3 text-[14px] leading-[1.6] text-ink-soft">
             <input id="f-ack-membership" type="checkbox" name="ack-membership" className="mt-1 h-4 w-4 shrink-0 accent-[var(--ink)]" {...aria("ack-membership")} />
             <span>
-              I understand the Fellowship is unpaid and selected fellows activate a {membership.price}{" "}
+              I understand the Fellowship is unpaid and selected fellows pay a one-time{" "}
               <Link href="/opportunities/fellowship/membership" target="_blank" rel="noopener" className="text-ink underline underline-offset-2">
-                membership
+                membership fee
               </Link>
               .
             </span>

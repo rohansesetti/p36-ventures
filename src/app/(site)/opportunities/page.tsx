@@ -26,7 +26,7 @@ export default function OpportunitiesPage() {
               The P36 Fellowship.
             </h2>
             <p className="mt-5 max-w-[26rem] text-[15px] leading-[1.7] text-ink-soft">
-              Six weeks on live files. Unpaid.
+              Six weeks on live mandates.
             </p>
             <div className="mt-8 flex flex-wrap gap-8">
               <Link href="/opportunities/fellowship/apply" className="cta-link">
@@ -55,7 +55,7 @@ export default function OpportunitiesPage() {
           <div className="mb-8 flex flex-col gap-3 md:flex-row md:items-baseline md:justify-between">
             <p className="label-v2">Desks</p>
             <p className="text-[13.5px] leading-[1.65] text-ink-soft md:text-right">
-              Commission-based. By referral or for exceptional candidates.
+              By referral or invitation.
             </p>
           </div>
           <ul className="flex flex-col">
@@ -99,7 +99,8 @@ export default function OpportunitiesPage() {
               Tell us which seat.
             </h2>
             <p className="mt-5 max-w-[28rem] text-[14.5px] leading-[1.7] text-ink-soft">
-              We reply when there is a fit.
+              Desk seats are commission-based, with terms agreed in writing
+              before you start. We reply when there is a fit.
             </p>
           </div>
           <div className="lg:col-span-6 lg:col-start-7">

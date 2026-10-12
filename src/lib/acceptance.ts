@@ -20,7 +20,7 @@ export async function getSelection(token: string): Promise<Selection | null> {
   if (process.env.NODE_ENV !== "production" && token === "preview") {
     return {
       name: "[Name]",
-      cohort: "[Cohort I]",
+      cohort: "Cohort 4",
       workstream: "Real assets",
       startDate: "[START DATE]",
       standupTime: "[09:00 GMT]",

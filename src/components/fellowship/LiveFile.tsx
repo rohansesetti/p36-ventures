@@ -104,8 +104,8 @@ export function LiveFile() {
           aria-label="Review notes"
           className="border-t border-line bg-paper-2/60 px-5 py-4 md:border-t-0 md:px-5 md:py-5"
         >
-          <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-ink-faint">
-            Core team review
+          <p className="text-[12.5px] leading-[1.5] text-ink-faint">
+            Reviewed by Rohan Sesetti, CEO
           </p>
           <ol className="mt-3 flex flex-col gap-4">
             {notes.map((note) => (

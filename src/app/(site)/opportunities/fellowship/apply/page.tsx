@@ -15,7 +15,7 @@ export default function FellowshipApplyPage() {
       <PageHero
         eyebrow="The P36 Fellowship"
         title="Apply."
-        lead={`${cohort.name} begins ${cohort.startDate}. Applications close ${cohort.closeDate}.`}
+        lead={`${cohort.admissions}. ${cohort.name} closes ${cohort.closeDate}.`}
       />
 
       <section className="section-v2">

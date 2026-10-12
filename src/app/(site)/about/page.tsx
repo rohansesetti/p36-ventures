@@ -1,7 +1,9 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { PageHero } from "@/components/ui/PageHero";
+import Image from "next/image";
 import { offices } from "@/data/offices";
+import { team } from "@/data/team";
 
 export const metadata: Metadata = {
   title: "The firm | P36 Ventures",
@@ -42,7 +44,7 @@ const holds = [
   },
   {
     title: "A short book",
-    desc: "The people on the briefing are the people on the mandate. No junior bench behind a partner name.",
+    desc: "The people on the briefing lead the mandate. Every output is signed off by a partner.",
   },
   {
     title: "Aligned on close",
@@ -65,8 +67,8 @@ export default function AboutPage() {
           <p className="heading-serif max-w-[40rem] text-[clamp(1.5rem,3vw,2.125rem)] font-light leading-[1.35]">
             Strategy without a deliverable is overhead.{" "}
             <span className="text-ink-soft">
-              We take a limited number of mandates so the work is done by the
-              people you meet.
+              We take a limited number of mandates so the people you meet lead
+              the work.
             </span>
           </p>
         </div>
@@ -112,6 +114,51 @@ export default function AboutPage() {
                 <p className="mt-3 text-[14px] leading-[1.7] text-ink-soft">
                   {seat.desc}
                 </p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="section-v2 border-t border-line">
+        <div className="wrap">
+          <p className="label-v2 mb-5">Leadership</p>
+          <p className="heading-serif mb-10 max-w-[36rem] text-[clamp(1.375rem,2.6vw,1.875rem)] font-light leading-[1.35]">
+            The people you meet.
+          </p>
+          <ul className="grid grid-cols-1 border-y border-line sm:grid-cols-3">
+            {team.map((person, i) => (
+              <li
+                key={person.name}
+                className={`py-8 sm:py-10 ${
+                  i > 0 ? "border-t border-line sm:border-t-0 sm:border-l sm:px-8" : "sm:pr-8"
+                } ${i === team.length - 1 ? "sm:pr-0" : ""}`}
+              >
+                {person.photo ? (
+                  <div className="relative mb-6 aspect-[4/5] w-full max-w-[14rem] overflow-hidden bg-paper-2">
+                    <Image
+                      src={person.photo}
+                      alt={person.name}
+                      fill
+                      sizes="(min-width: 640px) 14rem, 100vw"
+                      className="object-cover grayscale"
+                    />
+                  </div>
+                ) : null}
+                <h3 className="heading-serif text-[1.375rem] font-light">{person.name}</h3>
+                <p className="mt-2 text-[11px] font-medium uppercase tracking-[0.14em] text-ink-faint">
+                  {person.role}
+                </p>
+                {person.linkedin ? (
+                  <a
+                    href={person.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 inline-block text-[13px] text-ink underline decoration-line underline-offset-4"
+                  >
+                    LinkedIn
+                  </a>
+                ) : null}
               </li>
             ))}
           </ul>

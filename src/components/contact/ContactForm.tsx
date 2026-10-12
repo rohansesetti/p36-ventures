@@ -3,13 +3,7 @@
 import { FormEvent, useState } from "react";
 import { useSearchParams } from "next/navigation";
 
-const objectives = [
-  "Capital Sourcing",
-  "GTM Execution",
-  "Structural Governance",
-  "Exit Readiness",
-  "Transaction Audit",
-] as const;
+import { briefingObjectives as objectives } from "@/data/forms";
 
 export function ContactForm() {
   const searchParams = useSearchParams();
@@ -17,9 +11,32 @@ export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [email, setEmail] = useState(prefilledEmail);
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmitted(true);
+    if (sending) return;
+    setError("");
+    const data = Object.fromEntries(new FormData(e.currentTarget));
+    setSending(true);
+    try {
+      const res = await fetch("/api/briefing", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) {
+        const payload = await res.json().catch(() => null);
+        setError(payload?.error ?? "Something went wrong. Try again, or email hello@p36ventures.com.");
+        return;
+      }
+      setSubmitted(true);
+    } catch {
+      setError("Something went wrong. Check your connection and try again.");
+    } finally {
+      setSending(false);
+    }
   }
 
   if (submitted) {
@@ -35,7 +52,7 @@ export function ContactForm() {
     "mt-3 w-full border-0 border-b border-navy-900/20 bg-transparent py-2.5 text-sm text-navy-900 outline-none transition-colors placeholder:text-navy-900/35 focus:border-navy-900/50";
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-10">
+    <form onSubmit={handleSubmit} className="relative space-y-10">
       <div>
         <label
           htmlFor="contact-name"
@@ -114,11 +131,22 @@ export function ContactForm() {
           ))}
         </select>
       </div>
+      <div aria-hidden className="absolute left-[-10000px] top-auto h-px w-px overflow-hidden">
+        <label htmlFor="contact-website">Website</label>
+        <input id="contact-website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+      </div>
+      {error ? (
+        <p role="alert" className="border-l-2 border-[#9b2c2c] pl-4 text-[14px] text-[#9b2c2c]">
+          {error}
+        </p>
+      ) : null}
       <button
         type="submit"
-        className="mt-4 w-full border border-navy-900/20 bg-white px-6 py-3.5 text-[10px] font-semibold uppercase tracking-widest text-navy-900 shadow-[0_1px_2px_rgba(10,25,47,0.05)] transition-colors hover:border-navy-900/40 hover:bg-white"
+        disabled={sending}
+        aria-busy={sending}
+        className="mt-4 w-full disabled:cursor-wait disabled:opacity-50 border border-navy-900/20 bg-white px-6 py-3.5 text-[10px] font-semibold uppercase tracking-widest text-navy-900 shadow-[0_1px_2px_rgba(10,25,47,0.05)] transition-colors hover:border-navy-900/40 hover:bg-white"
       >
-        Submit inquiry
+        {sending ? "Sending…" : "Submit inquiry"}
       </button>
     </form>
   );

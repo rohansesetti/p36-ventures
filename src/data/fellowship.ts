@@ -4,13 +4,23 @@
  */
 
 export const cohort = {
-  name: "[COHORT NAME, e.g. Cohort I]",
-  startDate: "[START DATE]",
-  closeDate: "[APPLICATIONS CLOSE DATE]",
-  places: "[N]",
+  name: "Cohort 4",
+  admissions: "Rolling admissions",
+  closeDate: "October 31",
   hoursPerWeek: "[X]",
   replyDays: "[X]",
 };
+
+/**
+ * Fellowship numbers — TEMPLATE.
+ * Put real figures in `value` only (e.g. "48", "300+").
+ * Any entry left as "" is hidden; if all are empty, the whole strip is hidden.
+ */
+export const stats: { value: string; label: string }[] = [
+  { value: "", label: "Fellows trained" },
+  { value: "", label: "Outputs reviewed by the core team" },
+  { value: "", label: "Cohorts completed" },
+];
 
 export const membership = {
   price: "$49",
@@ -47,7 +57,7 @@ export const fellowshipSteps = [
   {
     rn: "III",
     window: "Weeks 2–5",
-    title: "Live files",
+    title: "Live mandates",
     desc: "Five-day sprints and a daily standup. The core team reviews everything. No client contact.",
   },
   {
@@ -101,11 +111,6 @@ export const suits = [
   "Aspiring search fund operators",
 ];
 
-export const doesNotSuit = [
-  "Anyone seeking a salaried role",
-  `Anyone without ${cohort.hoursPerWeek} hours a week`,
-];
-
 export const reimbursementCriteria = [
   {
     criterion: "Task completion",
@@ -132,7 +137,7 @@ export type Faq = { q: string; a: string };
 export const faqs: Faq[] = [
   {
     q: "Is it paid? Does it cost anything?",
-    a: `It is unpaid. Selected fellows activate a one-time ${membership.price} membership, reimbursed in full if invited to a desk.`,
+    a: "It is unpaid. Selected fellows pay a one-time membership fee, reimbursed in full if invited to a desk. Details are on the membership page.",
   },
   {
     q: "What happens after six weeks?",
