@@ -5,7 +5,7 @@ import { PageHero } from "@/components/ui/PageHero";
 export const metadata: Metadata = {
   title: "Studio & Capital | P36 Ventures",
   description:
-    "Two ways we work with founders: co-founding companies from a blank page, or engineering the capital stack around one already in motion.",
+    "Two ways we work with founders: co-founding companies from a blank page, or structuring the capital for one already in motion.",
 };
 
 const tracks = [
@@ -29,11 +29,11 @@ const tracks = [
     id: "capital",
     dot: "dot-capital",
     name: "Capital",
-    tagline: "For founders with traction who need the stack engineered properly.",
+    tagline: "For founders with traction who need the capital structured properly.",
     body: "Most rounds are lost before the first meeting — in a data room that does not hold up, a model that cannot be defended, or a structure that quietly caps the valuation. We fix that, then run the process end to end.",
     covers: [
       "Capital structure design across equity, debt, and non-dilutive funding",
-      "Financial modelling, forecasting, and valuation defence",
+      "Financial modeling, forecasting, and valuation defense",
       "Data room build and diligence readiness",
       "Investor narrative, memorandum, and pitch materials",
       "Targeted investor introductions and process management through close",
@@ -47,17 +47,17 @@ const principles = [
   {
     rn: "I",
     title: "We take the work, not the meeting",
-    desc: "Every mandate has a deliverable attached. If we cannot name what leaves our desk, we do not take the engagement.",
+    desc: "Every engagement has a deliverable attached. If we cannot name what leaves our desk, we do not take the engagement.",
   },
   {
     rn: "II",
     title: "Small number of companies",
-    desc: "We run a deliberately short book so that the people you meet are the people doing the work.",
+    desc: "We work with a small number of companies so the people you meet lead the work.",
   },
   {
     rn: "III",
     title: "Aligned on outcome",
-    desc: "Studio mandates are equity-based. Capital mandates are structured so we win when the round closes, not when the invoice does.",
+    desc: "Studio work is equity-based. Capital raises are structured so we win when the round closes, not when the invoice does.",
   },
 ] as const;
 
@@ -72,7 +72,7 @@ export default function StudioPage() {
             <em className="font-light italic">operating standard</em>.
           </>
         }
-        lead="P36 is a capital advisory firm with a studio arm. Studio mandates form and operate companies. Capital mandates structure and close the round. A limited number of engagements run both."
+        lead="P36 is a capital advisory firm with a studio arm. Studio work forms and operates companies. Capital work structures the round and closes it. A limited number of engagements run both."
       />
 
       {tracks.map((track, i) => (
@@ -100,7 +100,7 @@ export default function StudioPage() {
               </div>
 
               <div>
-                <p className="label-v2 mb-5">What the mandate covers</p>
+                <p className="label-v2 mb-5">What the engagement covers</p>
                 <ul className="mb-8 flex flex-col">
                   {track.covers.map((item) => (
                     <li

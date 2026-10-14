@@ -7,7 +7,7 @@ import { selectedWork } from "@/data/selectedWork";
 export const metadata: Metadata = {
   title: "Portfolio | P36 Ventures",
   description:
-    "Studio and capital mandates across deep tech, regeneration, consumer, and institutional education.",
+    "Studio and capital work across deep tech, regeneration, consumer, and institutional education.",
 };
 
 const studioCount = selectedWork.filter((i) => i.type === "studio").length;
@@ -15,8 +15,8 @@ const capitalCount = selectedWork.filter((i) => i.type === "capital").length;
 
 const summary = [
   { num: `${selectedWork.length}`, label: "Ventures built or financed" },
-  { num: `${studioCount}`, label: "Studio mandates" },
-  { num: `${capitalCount}`, label: "Capital mandates" },
+  { num: `${studioCount}`, label: "Studio companies" },
+  { num: `${capitalCount}`, label: "Capital raises" },
   { num: "$200M+", label: "Capital architected" },
 ] as const;
 
@@ -31,7 +31,7 @@ export default function PortfolioPage() {
             <em className="font-light italic">built and backed</em>.
           </>
         }
-        lead="Every mandate here is one we ran ourselves — as co-founder, as fractional leadership, or as the team that engineered the capital stack. Open any card to read what we actually did."
+        lead="Every company here is one we worked on ourselves — as co-founder, as fractional leadership, or as the team that structured the capital. Open any card to read what we actually did."
       />
 
       <section className="section-v2">

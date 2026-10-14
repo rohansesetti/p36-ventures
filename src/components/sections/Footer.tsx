@@ -5,13 +5,13 @@ import { offices } from "@/data/offices";
 const practices = [
   { href: "/what-we-do", label: "What we do" },
   { href: "/studio", label: "Capabilities" },
-  { href: "/portfolio", label: "Mandates" },
+  { href: "/portfolio", label: "Work" },
   { href: "/process", label: "Process" },
 ] as const;
 
 const firm = [
   { href: "/about", label: "The firm" },
-  { href: "/opportunities", label: "Opportunities" },
+  { href: "/opportunities", label: "Careers" },
   { href: "/contact", label: "Contact" },
   { href: "/privacy", label: "Privacy" },
 ] as const;
@@ -23,7 +23,7 @@ export function Footer() {
         <div>
           <BrandMark markClassName="h-8" />
           <p className="mt-5 max-w-[220px] text-[12.5px] leading-[1.65] text-ink-faint">
-            Capital advisory and venture studio. Formation through exit.
+            Capital advisory and venture studio. Formation through execution.
           </p>
         </div>
 
@@ -75,10 +75,10 @@ export function Footer() {
       <div className="wrap flex flex-wrap items-center justify-between gap-3 border-t border-line py-5 text-[12px] text-ink-faint">
         <span>© {new Date().getFullYear()} P36 Ventures. All rights reserved.</span>
         <a
-          href="mailto:hello@p36ventures.com"
+          href="mailto:services@p36ventures.com"
           className="text-ink-faint no-underline hover:text-ink"
         >
-          hello@p36ventures.com
+          services@p36ventures.com
         </a>
       </div>
     </footer>

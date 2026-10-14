@@ -8,9 +8,9 @@ import { WhatWeDoMenu } from "@/components/nav/WhatWeDoMenu";
 const navLinks = [
   { href: "/what-we-do", label: "What we do" },
   { href: "/studio", label: "Capabilities" },
-  { href: "/portfolio", label: "Mandates" },
+  { href: "/portfolio", label: "Work" },
   { href: "/process", label: "Process" },
-  { href: "/opportunities", label: "Opportunities" },
+  { href: "/opportunities", label: "Careers" },
   { href: "/about", label: "Firm" },
   { href: "/contact", label: "Contact" },
 ] as const;
@@ -130,8 +130,8 @@ export function SiteHeader() {
 
           <div className="flex shrink-0 flex-wrap justify-between gap-3 text-xs text-ink-faint">
             <span>Delhi — New York — London</span>
-            <a href="mailto:hello@p36ventures.com" className="text-ink-soft no-underline">
-              hello@p36ventures.com
+            <a href="mailto:services@p36ventures.com" className="text-ink-soft no-underline">
+              services@p36ventures.com
             </a>
           </div>
         </div>

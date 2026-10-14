@@ -1,8 +1,8 @@
 import Link from "next/link";
 
 const stats = [
-  { num: "$200M+", desc: "Capital structured across active mandates" },
-  { num: "12", desc: "Mandates completed or currently in market" },
+  { num: "$200M+", desc: "Capital structured for founders" },
+  { num: "12", desc: "Companies advised or built" },
   { num: "3", desc: "Delhi, New York, London" },
 ] as const;
 
@@ -20,13 +20,19 @@ export function Hero() {
           <span className="block text-pop">Scale.</span>
         </h1>
 
-        <p className="mt-7 max-w-[28rem] text-[16px] leading-[1.65] text-ink-soft">
-          We build the company and structure the capital — through close.
+        <p className="mt-7 max-w-[30rem] text-[16px] leading-[1.65] text-ink-soft">
+          We work alongside founders to raise and scale, from formation
+          through execution.
         </p>
 
-        <Link href="/contact" className="cta-link mt-7">
-          Request a briefing →
-        </Link>
+        <div className="mt-7 flex flex-wrap gap-8">
+          <Link href="/contact" className="cta-link">
+            Request a briefing →
+          </Link>
+          <Link href="/portfolio" className="cta-link">
+            Our work →
+          </Link>
+        </div>
 
         <div className="mt-14 grid grid-cols-1 gap-6 border-t border-line pt-8 sm:grid-cols-3 sm:gap-8">
           {stats.map((stat) => (

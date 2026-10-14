@@ -2,11 +2,24 @@ import { PhotoTint } from "@/components/ui/PhotoTint";
 import type { SelectedWorkItem } from "@/data/selectedWork";
 import Image from "next/image";
 
-const logoSize: Record<NonNullable<SelectedWorkItem["logo"]>["shape"], string> =
-  {
-    wide: "h-auto w-auto max-h-[40px] max-w-[168px]",
-    mark: "h-11 w-auto max-h-[44px]",
-  };
+/**
+ * Optical sizing: every logo gets roughly the same visual area on its plate,
+ * so long wordmarks and round marks read as equal weight.
+ */
+const LOGO_AREA = 3400; // px²
+const LOGO_MAX_W = 148;
+const LOGO_MAX_H = 44;
+
+function logoDisplaySize(width: number, height: number) {
+  const ratio = width / height;
+  let h = Math.min(LOGO_MAX_H, Math.sqrt(LOGO_AREA / ratio));
+  let w = h * ratio;
+  if (w > LOGO_MAX_W) {
+    w = LOGO_MAX_W;
+    h = w / ratio;
+  }
+  return { width: Math.round(w), height: Math.round(h) };
+}
 
 type MandatePhotoProps = {
   item: SelectedWorkItem;
@@ -34,14 +47,16 @@ export function MandatePhoto({
     >
       <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent px-4 pb-4 pt-16">
         {item.logo ? (
-          <div className="inline-flex max-w-[90%] items-center bg-white px-3.5 py-2.5 shadow-[0_8px_24px_rgba(0,0,0,0.18)]">
+          <div className="flex h-16 w-[11rem] max-w-full items-center justify-center bg-white shadow-[0_8px_24px_rgba(0,0,0,0.18)]">
             <Image
               src={item.logo.src}
               alt={`${item.name} logo`}
               width={item.logo.width}
               height={item.logo.height}
               quality={100}
-              className={`object-contain object-left ${logoSize[item.logo.shape]}`}
+              sizes="148px"
+              className="object-contain"
+              style={logoDisplaySize(item.logo.width, item.logo.height)}
             />
           </div>
         ) : (

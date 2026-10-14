@@ -44,7 +44,7 @@ export async function POST(request: Request) {
   } catch (err) {
     console.error(err);
     return Response.json(
-      { error: "Your inquiry could not be sent. Try again, or email hello@p36ventures.com." },
+      { error: "Your inquiry could not be sent. Try again, or email services@p36ventures.com." },
       { status: 502 },
     );
   }

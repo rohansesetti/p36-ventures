@@ -71,8 +71,8 @@ export default function MembershipPage() {
               <div className="min-w-0">
                 <h2 className={h2}>Reimbursement</h2>
                 <p className={body}>
-                  Reimbursed in full if you are invited to a P36 desk after the
-                  Week 6 review.
+                  Reimbursed in full if you are offered a P36 analyst role after
+                  the Week 6 review.
                 </p>
                 <div className="mt-6 overflow-x-auto">
                   <table className="w-full min-w-[34rem] border-collapse text-left text-[13.5px] leading-[1.55]">
@@ -118,7 +118,7 @@ export default function MembershipPage() {
                 <h2 className={h2}>Timing</h2>
                 <p className={body}>
                   Reimbursed in full within {membership.reimbursementDays} days
-                  of joining a desk, to the original payment method.
+                  of joining, to the original payment method.
                 </p>
               </div>
             </div>
@@ -126,7 +126,7 @@ export default function MembershipPage() {
             <div className="grid grid-cols-[40px_1fr] gap-5 border-t border-line py-10 md:grid-cols-[70px_1fr]">
               <span className="heading-serif text-lg italic text-ink-faint">V</span>
               <div>
-                <h2 className={h2}>If you are not invited to a desk</h2>
+                <h2 className={h2}>If you are not offered a role</h2>
                 <p className={body}>
                   You keep the templates and certificate. No reimbursement.
                 </p>

@@ -25,7 +25,7 @@ export const stats: { value: string; label: string }[] = [
 export const membership = {
   price: "$49",
   reimbursementDays: 14,
-  contact: "hello@p36ventures.com",
+  contact: "services@p36ventures.com",
 };
 
 /** Application form options, shared by the form and the API route. */
@@ -57,7 +57,7 @@ export const fellowshipSteps = [
   {
     rn: "III",
     window: "Weeks 2–5",
-    title: "Live mandates",
+    title: "Real ventures",
     desc: "Five-day sprints and a daily standup. The core team reviews everything. No client contact.",
   },
   {
@@ -93,12 +93,12 @@ export const workstreams: Workstream[] = [
   {
     id: "operating-finance",
     title: "Operating finance",
-    output: "Normalised P&Ls, margin reviews, grant scans.",
+    output: "Normalized P&Ls, margin reviews, grant scans.",
   },
 ];
 
 export const membershipIncludes = [
-  { title: "Modelling library", desc: "LBO, three-statement and real estate templates. Yours to keep." },
+  { title: "Modeling library", desc: "LBO, three-statement and real estate templates. Yours to keep." },
   { title: "P36 Edu AI suite", desc: "Prompts and parsers for financial analysis." },
   { title: "Analyst certificate", desc: "Issued by P36.", small: "Not an accredited qualification." },
   { title: "Alumni network", desc: "Opt-in profile shared with partner firms." },
@@ -137,11 +137,11 @@ export type Faq = { q: string; a: string };
 export const faqs: Faq[] = [
   {
     q: "Is it paid? Does it cost anything?",
-    a: "It is unpaid. Selected fellows pay a one-time membership fee, reimbursed in full if invited to a desk. Details are on the membership page.",
+    a: "It is unpaid. Selected fellows pay a one-time membership fee, reimbursed in full if you are offered an analyst role. Details are on the membership page.",
   },
   {
     q: "What happens after six weeks?",
-    a: "You keep the templates and certificate. Desks are filled by referral or for exceptional candidates; a standout fellow may be invited. Desks are commission-only, earnings are not guaranteed, and terms are agreed in writing first.",
+    a: "You keep the templates and certificate. Analyst roles are filled by referral or for exceptional candidates, and a standout fellow may be offered one. These roles are commission-only, earnings are not guaranteed, and terms are agreed in writing first.",
   },
   {
     q: "How much time does it take?",

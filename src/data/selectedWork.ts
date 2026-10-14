@@ -45,13 +45,13 @@ export const selectedWork: SelectedWorkItem[] = [
       alt: "Looking up through a grid of downtown towers",
     },
     logo: {
-      src: "/logos/prospex.png",
+      src: "/logos/prospex-clean.png",
       width: 192,
       height: 90,
       shape: "wide",
     },
     expand:
-      "Prospex came to us pre-seed with a strong product and no investor-ready narrative. We rebuilt the data room, sharpened the raise story, and ran the process end to end through close. Ongoing mandates cover corporate structuring and executive performance coaching.",
+      "Prospex came to us pre-seed with a strong product and no investor-ready narrative. We rebuilt the data room, sharpened the raise story, and ran the process end to end through close. Ongoing work covers corporate structuring and executive performance coaching.",
   },
   {
     id: "terra",
@@ -67,13 +67,13 @@ export const selectedWork: SelectedWorkItem[] = [
       alt: "Sunlit path through a dense forest",
     },
     logo: {
-      src: "/logos/terra-initiative.png",
+      src: "/logos/terra-initiative-clean.png",
       width: 377,
-      height: 137,
+      height: 136,
       shape: "wide",
     },
     expand:
-      "A multi-stakeholder regeneration vehicle needed an institutional-grade memorandum before it could approach sovereign and family-office capital. We engineered the $200M financial architecture and now manage institutional investor relations for bioregional deployment.",
+      "A multi-stakeholder regeneration vehicle needed an institutional-grade memorandum before it could approach sovereign and family-office capital. We built the $200M financial architecture and now manage institutional investor relations as the program scales across the region.",
   },
   {
     id: "isa-energy",
@@ -89,13 +89,13 @@ export const selectedWork: SelectedWorkItem[] = [
       alt: "High-voltage pylons receding across a plain at dusk",
     },
     logo: {
-      src: "/logos/isa-energy.png",
-      width: 177,
+      src: "/logos/isa-energy-clean.png",
+      width: 176,
       height: 42,
       shape: "wide",
     },
     expand:
-      "We engineered the financial infrastructure and strategic roadmap required to navigate a high-stakes institutional funding cycle, positioning a frontier energy technology for capital that expects rigour.",
+      "We built the financial model and strategic plan for a high-stakes institutional funding cycle, preparing a frontier energy technology for investors who expect rigor.",
   },
   {
     id: "solaryn",
@@ -147,7 +147,7 @@ export const selectedWork: SelectedWorkItem[] = [
     desc: "Strategic fundraising and institutional partnership advisory.",
     type: "capital",
     sector: "Education",
-    stage: "Global mandate",
+    stage: "Global program",
     status: "Current",
     year: "2024",
     image: {
@@ -155,13 +155,13 @@ export const selectedWork: SelectedWorkItem[] = [
       alt: "University campus building seen through trees",
     },
     logo: {
-      src: "/logos/uci.png",
+      src: "/logos/uci-clean.png",
       width: 143,
       height: 167,
       shape: "mark",
     },
     expand:
-      "We orchestrate global capital initiatives that expand international cooperation programs, working alongside university leadership to secure multi-lateral strategic partnerships.",
+      "We lead global capital initiatives that expand international cooperation programs, working with university leadership to secure partnerships across multiple institutions.",
   },
   {
     id: "rippling",
@@ -177,8 +177,8 @@ export const selectedWork: SelectedWorkItem[] = [
       alt: "Mountain lake at dusk with a still shoreline",
     },
     logo: {
-      src: "/logos/rippling-nature.png",
-      width: 124,
+      src: "/logos/rippling-nature-clean.png",
+      width: 123,
       height: 123,
       shape: "mark",
     },
@@ -200,13 +200,13 @@ export const selectedWork: SelectedWorkItem[] = [
       alt: "Clear alpine lake under a mountain range",
     },
     logo: {
-      src: "/logos/reserva-azul.png",
+      src: "/logos/reserva-azul-clean.png",
       width: 969,
       height: 273,
       shape: "wide",
     },
     websiteUrl: "https://www.gotaazulcr.com/en/",
     expand:
-      "We support B2B programs, compliance-forward positioning, and scalable distribution narratives as the brand supplies certified Nicoya mountain spring water nationwide across Costa Rica.",
+      "We support B2B programs, compliance, and distribution as the brand supplies certified Nicoya mountain spring water nationwide across Costa Rica.",
   },
 ];

@@ -36,9 +36,9 @@ export const portfolioItems: PortfolioItem[] = [
     category: "SaaS",
     initials: "PX",
     initialsAccent: "navy",
-    logoSrc: "/logos/prospex.png",
+    logoSrc: "/logos/prospex-clean.png",
     result:
-      "Strategic execution and capital advisory for a B2B AI leader. Architected the GTM roadmap and optimized investor narratives to secure a $600K seed round. Ongoing mandates include corporate structuring and executive performance coaching.",
+      "Capital advisory and go-to-market strategy for a B2B AI company. Built the go-to-market plan and rewrote the investor story ahead of a $600K seed round. Ongoing work includes corporate structuring and executive coaching.",
     outcomeEmphasis: "$600K seed round",
   },
   {
@@ -47,9 +47,9 @@ export const portfolioItems: PortfolioItem[] = [
     category: "Regen",
     initials: "TI",
     initialsAccent: "forest",
-    logoSrc: "/logos/terra-initiative.png",
+    logoSrc: "/logos/terra-initiative-clean.png",
     result:
-      "Lead Capital Advisory for a regional regenerative ecosystem. Engineered the complex $200M financial architecture and investment memorandum. Managing institutional investor relations to facilitate large-scale bioregional deployment.",
+      "Lead capital advisor to a regional regeneration initiative. Built the $200M financial architecture and the investment memorandum, and now manage institutional investor relations as the program scales across the region.",
     outcomeEmphasis: "$200M financial architecture",
   },
   {
@@ -58,9 +58,9 @@ export const portfolioItems: PortfolioItem[] = [
     category: "DeepTech",
     initials: "IE",
     initialsAccent: "orange",
-    logoSrc: "/logos/isa-energy.png",
+    logoSrc: "/logos/isa-energy-clean.png",
     result:
-      "Capital Readiness and Transaction Advisory for a quantum energy pioneer. Engineered the financial infrastructure and strategic roadmap to navigate a high-stakes institutional funding cycle.",
+      "Capital readiness and transaction advisory for a quantum energy company. Built the financial model and strategic plan for a high-stakes institutional funding cycle.",
     outcomeEmphasis: "high-stakes institutional funding cycle",
   },
   {
@@ -72,7 +72,7 @@ export const portfolioItems: PortfolioItem[] = [
     logoSrc: "/logos/solaryn.svg",
     logoOnly: true,
     result:
-      "Fractional CFO and Structural Architecture for an AGI & Defense venture. Managed the closing of $1.3M in funding while establishing the robust corporate governance and financial controls required for national security contracts.",
+      "Fractional CFO and corporate structure for an AGI and defense company. Managed the close of $1.3M in funding and set up the governance and financial controls required for national security contracts.",
     outcomeEmphasis: "$1.3M in funding",
   },
   {
@@ -82,7 +82,7 @@ export const portfolioItems: PortfolioItem[] = [
     initials: "AM",
     initialsAccent: "rose",
     result:
-      "Operational Leadership and Strategy for a wellness-focused Micro-VC. Providing Fractional CEO services to professionalize the investment vehicle and optimize portfolio performance through strategic oversight.",
+      "Operating leadership for a wellness-focused micro-VC. Providing Fractional CEO services to professionalize the fund and strengthen portfolio oversight.",
     outcomeEmphasis: "Fractional CEO services",
   },
   {
@@ -91,9 +91,9 @@ export const portfolioItems: PortfolioItem[] = [
     category: "Regen",
     initials: "UC",
     initialsAccent: "forest",
-    logoSrc: "/logos/uci.png",
+    logoSrc: "/logos/uci-clean.png",
     result:
-      "Strategic Fundraising and Institutional Partnership advisory. Orchestrating global capital initiatives to expand international cooperation programs and secure multi-lateral strategic partnerships.",
+      "Fundraising and institutional partnership advisory. Leading global capital initiatives that expand international cooperation programs and secure partnerships across multiple institutions.",
     outcomeEmphasis: "global capital initiatives",
   },
   {
@@ -102,10 +102,10 @@ export const portfolioItems: PortfolioItem[] = [
     category: "DeepTech",
     initials: "RN",
     initialsAccent: "orange",
-    logoSrc: "/logos/rippling-nature.png",
+    logoSrc: "/logos/rippling-nature-clean.png",
     websiteUrl: "https://www.ripplingnature.com/",
     result:
-      "Strategic finance and partnership advisory for a Houston venture merging Deep-Tech with sustainability—supporting regenerative urban pilots, university collaborations, and institutional narratives behind initiatives from bayou agriculture to community-scale resilience.",
+      "Strategic finance and partnership advisory for a Houston venture combining Deep-Tech with sustainability, supporting urban regeneration pilots, university collaborations, and initiatives from bayou agriculture to community-scale resilience.",
     outcomeEmphasis: "Deep-Tech with sustainability",
   },
   {
@@ -116,7 +116,7 @@ export const portfolioItems: PortfolioItem[] = [
     initialsAccent: "blue",
     websiteUrl: "https://www.gotaazulcr.com/en/",
     result:
-      "Growth and go-to-market advisory for a Nicoya Blue Zone natural spring water brand. Supporting B2B programs, compliance-forward positioning, and scalable distribution narratives as they supply certified mountain spring water nationwide across Costa Rica.",
+      "Growth and go-to-market advisory for a spring water brand from Costa Rica's Nicoya Blue Zone. Supporting B2B programs, compliance, and distribution as the brand supplies certified mountain spring water nationwide across Costa Rica.",
     outcomeEmphasis: "nationwide across Costa Rica",
   },
 ];

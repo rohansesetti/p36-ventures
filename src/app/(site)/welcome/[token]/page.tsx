@@ -66,7 +66,7 @@ export default async function WelcomePage({ params }: Props) {
               <span className="ml-3 font-sans text-[14px] text-ink-faint">one-time</span>
             </p>
             <p className="mt-5 max-w-[26rem] text-[14px] leading-[1.7] text-ink-soft">
-              Reimbursed in full if you are invited to a desk. You keep the
+              Reimbursed in full if you are offered an analyst role. You keep the
               templates and certificate either way.
             </p>
             <Link

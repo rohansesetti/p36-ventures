@@ -7,26 +7,26 @@ import { OpportunityForm } from "@/components/contact/OpportunityForm";
 import { opportunities } from "@/data/opportunities";
 
 export const metadata: Metadata = {
-  title: "Opportunities | P36 Ventures",
+  title: "Careers | P36 Ventures",
   description:
-    "The P36 Fellowship, and desk seats for VC, business development, real estate and venture scouting.",
+    "Careers at P36 Ventures: the P36 Fellowship and roles in venture capital, business development, real estate, and venture scouting.",
 };
 
 export default function OpportunitiesPage() {
   return (
     <main className="relative flex-1 bg-paper">
-      <PageHero eyebrow="Opportunities" title="Open seats." />
+      <PageHero eyebrow="P36 Ventures" title="Careers." />
 
       {/* Fellowship first */}
       <section className="relative z-[1] border-b border-line">
         <div className="wrap grid grid-cols-1 items-stretch gap-0 lg:grid-cols-2">
           <div className="flex flex-col justify-center py-16 pr-0 lg:py-20 lg:pr-16">
-            <p className="label-v2 mb-5">Programme</p>
+            <p className="label-v2 mb-5">Program</p>
             <h2 className="heading-serif max-w-[18ch] text-[clamp(1.75rem,3.2vw,2.5rem)] font-light leading-[1.15]">
               The P36 Fellowship.
             </h2>
             <p className="mt-5 max-w-[26rem] text-[15px] leading-[1.7] text-ink-soft">
-              Six weeks on live mandates.
+              Six weeks on real ventures.
             </p>
             <div className="mt-8 flex flex-wrap gap-8">
               <Link href="/opportunities/fellowship/apply" className="cta-link">
@@ -53,7 +53,7 @@ export default function OpportunitiesPage() {
       <section className="section-v2">
         <div className="wrap">
           <div className="mb-8 flex flex-col gap-3 md:flex-row md:items-baseline md:justify-between">
-            <p className="label-v2">Desks</p>
+            <p className="label-v2">Open roles</p>
             <p className="text-[13.5px] leading-[1.65] text-ink-soft md:text-right">
               By referral or invitation.
             </p>
@@ -94,13 +94,13 @@ export default function OpportunitiesPage() {
       >
         <div className="wrap grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-5">
-            <p className="label-v2 mb-5">Desk application</p>
+            <p className="label-v2 mb-5">Apply</p>
             <h2 className="heading-serif max-w-[18ch] text-[clamp(1.5rem,2.8vw,2.125rem)] font-light leading-[1.2]">
-              Tell us which seat.
+              Tell us which role.
             </h2>
             <p className="mt-5 max-w-[28rem] text-[14.5px] leading-[1.7] text-ink-soft">
-              Desk seats are commission-based, with terms agreed in writing
-              before you start. We reply when there is a fit.
+              Analyst roles are commission-based, with terms agreed in
+              writing before you start. We reply when there is a fit.
             </p>
           </div>
           <div className="lg:col-span-6 lg:col-start-7">

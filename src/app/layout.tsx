@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.p36ventures.com"),
   title: "P36 Ventures — Capital Advisory & Venture Studio",
   description:
-    "P36 structures capital, diligence, and operating infrastructure for companies from formation through exit.",
+    "P36 structures capital, diligence, and operating infrastructure for companies from formation through execution.",
   openGraph: {
     type: "website",
     siteName: "P36 Ventures",

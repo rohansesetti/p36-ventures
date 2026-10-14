@@ -7,7 +7,7 @@ import { Suspense } from "react";
 export const metadata: Metadata = {
   title: "Contact | P36 Ventures",
   description:
-    "Request a briefing with P36 Ventures on a capital or studio mandate.",
+    "Request a briefing with P36 Ventures on capital or studio work.",
 };
 
 export default function ContactPage() {
@@ -41,7 +41,7 @@ export default function ContactPage() {
               Office hours
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-navy-900/85">
-              Tuesday &amp; Thursday, 09:00–12:00 GMT
+              Tuesday &amp; Thursday, 9:00 AM–12:00 PM ET
               <br />
               Briefings by appointment.
             </p>

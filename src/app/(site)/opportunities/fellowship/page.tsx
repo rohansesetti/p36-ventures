@@ -16,7 +16,7 @@ import {
 export const metadata: Metadata = {
   title: "The Fellowship | P36 Ventures",
   description:
-    "Six weeks on live mandates. A cohort-based private markets fellowship, reviewed by the P36 core team.",
+    "Six weeks on real ventures. A cohort-based private markets fellowship, reviewed by the P36 core team.",
 };
 
 const sectionTitle =
@@ -31,7 +31,7 @@ export default function FellowshipPage() {
             <div className="lg:col-span-7">
               <p className="label-v2 mb-5">The P36 Fellowship</p>
               <h1 className="heading-serif max-w-[16ch] text-[clamp(2.25rem,5.2vw,4rem)] font-light leading-[1.06]">
-                Six weeks on live mandates.
+                Six weeks on real ventures.
               </h1>
               <p className="mt-6 max-w-[34rem] text-[16px] font-light leading-[1.7] text-ink-soft">
                 You draft the work. The core team reviews every line.

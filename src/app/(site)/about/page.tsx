@@ -29,11 +29,11 @@ const seats = [
   },
   {
     title: "Governance",
-    desc: "Entity hygiene, minutes, and a file that survives a buyer’s counsel. Installed before it is urgent.",
+    desc: "Clean entity records, board minutes, and a corporate file in order before an investor asks for it.",
   },
   {
     title: "Coverage",
-    desc: "The desks that write at this stage, in this order, with a story they can take to IC.",
+    desc: "The investors who back companies at your stage, approached in the right order, with a story they can take to their investment committee.",
   },
 ] as const;
 
@@ -43,8 +43,8 @@ const holds = [
     desc: "If we cannot say what leaves our desk, we do not take the work.",
   },
   {
-    title: "A short book",
-    desc: "The people on the briefing lead the mandate. Every output is signed off by a partner.",
+    title: "A small client list",
+    desc: "The people in the briefing lead the work. Every output is signed off by a partner.",
   },
   {
     title: "Aligned on close",
@@ -67,7 +67,7 @@ export default function AboutPage() {
           <p className="heading-serif max-w-[40rem] text-[clamp(1.5rem,3vw,2.125rem)] font-light leading-[1.35]">
             Strategy without a deliverable is overhead.{" "}
             <span className="text-ink-soft">
-              We take a limited number of mandates so the people you meet lead
+              We take on a limited number of clients so the people you meet lead
               the work.
             </span>
           </p>
@@ -99,8 +99,8 @@ export default function AboutPage() {
       <section className="section-v2 border-t border-line">
         <div className="wrap">
           <p className="heading-serif mb-10 max-w-[36rem] text-[clamp(1.375rem,2.6vw,1.875rem)] font-light leading-[1.35]">
-            How a mandate is staffed.{" "}
-            <span className="text-ink-soft">Three seats. No theatre.</span>
+            How we staff the work.{" "}
+            <span className="text-ink-soft">Three roles on every engagement.</span>
           </p>
           <ul className="grid grid-cols-1 border-y border-line sm:grid-cols-3">
             {seats.map((seat, i) => (

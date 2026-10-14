@@ -7,17 +7,17 @@ export function Opportunities() {
     <section id="opportunities" className="section-v2 relative z-[1]">
       <div className="wrap">
         <Reveal>
-          <p className="label-v2 mb-5">Opportunities</p>
+          <p className="label-v2 mb-5">Careers</p>
         </Reveal>
 
         <Reveal>
           <div className="mb-10 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <h2 className="heading-serif max-w-[24rem] text-[clamp(1.75rem,3.2vw,2.5rem)] font-light leading-[1.15]">
-              Open seats on the book.
+              Join the team.
             </h2>
             <p className="max-w-[340px] text-[13.5px] leading-[1.65] text-ink-soft lg:text-right">
-              Analyst desks and a scout network across Delhi, New York, and
-              London.
+              The P36 Fellowship, analyst roles, and a scout network across
+              Delhi, New York, and London.
             </p>
           </div>
         </Reveal>
@@ -46,7 +46,7 @@ export function Opportunities() {
 
         <Reveal>
           <Link href="/opportunities" className="cta-link mt-10">
-            View opportunities →
+            View careers →
           </Link>
         </Reveal>
       </div>

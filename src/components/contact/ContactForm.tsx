@@ -28,7 +28,7 @@ export function ContactForm() {
       });
       if (!res.ok) {
         const payload = await res.json().catch(() => null);
-        setError(payload?.error ?? "Something went wrong. Try again, or email hello@p36ventures.com.");
+        setError(payload?.error ?? "Something went wrong. Try again, or email services@p36ventures.com.");
         return;
       }
       setSubmitted(true);
@@ -42,7 +42,7 @@ export function ContactForm() {
   if (submitted) {
     return (
       <p className="text-sm leading-relaxed text-navy-900/85">
-        Thank you. Your mandate inquiry has been received—we review a limited
+        Thank you. Your inquiry has been received—we review a limited
         number of partnerships each year and will respond if there is a fit.
       </p>
     );

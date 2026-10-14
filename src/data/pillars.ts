@@ -42,7 +42,7 @@ export const pillars: PillarData[] = [
       serif: "Strategy",
     },
     lead:
-      "We don't just prepare you for the market; we bring the market to you. P36 acts as your strategic bridge, connecting your venture with our private network of institutional investors, family offices, and venture funds. We handle the outreach and the introductions, ensuring your story lands on the right desks to secure the funding you need.",
+      "We prepare you for the market and bring it to you. We introduce your company to our network of institutional investors, family offices, and venture funds, and handle the outreach so your story reaches the right investors.",
     highlights: [
       "Investor Access",
       "Grant Funding & Strategy",
@@ -75,7 +75,7 @@ export const pillars: PillarData[] = [
       serif: "Readiness",
     },
     lead:
-      "Data rooms and narratives engineered to withstand institutional scrutiny. We architect the financial core and due diligence frameworks required to close complex mandates with total confidence.",
+      "Data rooms and investor stories built to hold up under institutional scrutiny. We set up the financials and the diligence process needed to close complex deals.",
     highlights: [
       "Investor data room",
       "Pitch deck & Q&A prep",
@@ -124,19 +124,19 @@ export const pillars: PillarData[] = [
     sidebarLabel: "Structural Strategy",
     label: "Pillar 04",
     title: "Structural Strategy",
-    headline: "Operating models and exit paths built for scale.",
+    headline: "Operating models and governance built for scale.",
     sectionHeading: {
       number: "04",
       beforeSerif: "Structural",
       serif: "Strategy",
     },
     lead:
-      "Structure determines your future options. We align your governance, corporate development, and equity mechanics so that scaling doesn't create hidden liabilities. We build the stable foundation required to protect your valuation from the seed stage through to a successful exit.",
+      "Structure determines your future options. We align your governance, corporate development, and equity mechanics so that scaling doesn't create hidden liabilities. We build the foundation that protects your valuation from seed through every later round.",
     highlights: [
       "Fractional CFO / COO",
       "Board & governance",
       "Corporate structure strategy",
-      "Exit scenario modeling",
+      "Scenario modeling",
     ],
     leadOperational: "Fractional CFO / COO",
     deliverables: [

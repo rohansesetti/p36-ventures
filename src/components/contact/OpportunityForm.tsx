@@ -39,7 +39,7 @@ export function OpportunityForm() {
       });
       if (!res.ok) {
         const payload = await res.json().catch(() => null);
-        setError(payload?.error ?? "Something went wrong. Try again, or email hello@p36ventures.com.");
+        setError(payload?.error ?? "Something went wrong. Try again, or email services@p36ventures.com.");
         return;
       }
       setSubmitted(true);

@@ -22,7 +22,7 @@ const selectStyle = {
 
 const errorText = "text-[#9b2c2c]";
 const sendFail =
-  "The application could not be sent. Try again, or email hello@p36ventures.com.";
+  "The application could not be sent. Try again, or email services@p36ventures.com.";
 
 type Errors = Partial<Record<string, string>>;
 

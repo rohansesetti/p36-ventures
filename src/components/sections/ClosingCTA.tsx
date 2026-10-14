@@ -9,7 +9,7 @@ export function ClosingCTA() {
         <div className="flex flex-col justify-center py-16 pr-0 lg:py-24 lg:pr-16">
           <Reveal>
             <p className="heading-serif max-w-[28rem] text-[clamp(1.5rem,3vw,2.25rem)] font-light leading-[1.3]">
-              Mandates begin with a briefing.{" "}
+              Every engagement begins with a briefing.{" "}
               <span className="text-ink-soft">
                 We take a limited number each year.
               </span>

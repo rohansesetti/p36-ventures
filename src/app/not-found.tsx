@@ -23,7 +23,7 @@ export default function NotFound() {
                 Home →
               </Link>
               <Link href="/opportunities" className="cta-link">
-                Opportunities →
+                Careers →
               </Link>
               <Link href="/contact" className="cta-link">
                 Contact →
