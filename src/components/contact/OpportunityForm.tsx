@@ -171,7 +171,7 @@ export function OpportunityForm() {
         type="submit"
         disabled={sending}
         aria-busy={sending}
-        className="cta-link mt-2 cursor-pointer border-none bg-transparent disabled:cursor-wait disabled:opacity-50"
+        className="cta-solid mt-2"
       >
         {sending ? "Sending…" : "Submit application →"}
       </button>

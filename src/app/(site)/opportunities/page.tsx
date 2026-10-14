@@ -28,8 +28,8 @@ export default function OpportunitiesPage() {
             <p className="mt-5 max-w-[26rem] text-[15px] leading-[1.7] text-ink-soft">
               Six weeks on real ventures.
             </p>
-            <div className="mt-8 flex flex-wrap gap-8">
-              <Link href="/opportunities/fellowship/apply" className="cta-link">
+            <div className="mt-8 flex flex-wrap items-center gap-8">
+              <Link href="/opportunities/fellowship/apply" className="cta-solid">
                 Apply →
               </Link>
               <Link href="/opportunities/fellowship" className="cta-link">

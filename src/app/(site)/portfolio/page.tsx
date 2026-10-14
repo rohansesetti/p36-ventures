@@ -17,7 +17,7 @@ const summary = [
   { num: `${selectedWork.length}`, label: "Ventures built or financed" },
   { num: `${studioCount}`, label: "Studio companies" },
   { num: `${capitalCount}`, label: "Capital raises" },
-  { num: "$200M+", label: "Capital architected" },
+  { num: "$200M+", label: "Capital structured" },
 ] as const;
 
 export default function PortfolioPage() {
@@ -55,7 +55,7 @@ export default function PortfolioPage() {
             <h2 className="heading-serif max-w-[20ch] text-[clamp(1.5rem,2.8vw,2.125rem)] font-light leading-[1.2]">
               Building something that belongs on this list?
             </h2>
-            <Link href="/contact" className="cta-link mt-6">
+            <Link href="/contact" className="cta-solid mt-6">
               Start a conversation →
             </Link>
           </div>

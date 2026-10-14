@@ -3,7 +3,7 @@ import Link from "next/link";
 const stats = [
   { num: "$200M+", desc: "Capital structured for founders" },
   { num: "12", desc: "Companies advised or built" },
-  { num: "3", desc: "Delhi, New York, London" },
+  { num: "4", desc: "Teams in New York, Miami, London, Delhi" },
 ] as const;
 
 export function Hero() {
@@ -25,8 +25,8 @@ export function Hero() {
           through execution.
         </p>
 
-        <div className="mt-7 flex flex-wrap gap-8">
-          <Link href="/contact" className="cta-link">
+        <div className="mt-7 flex flex-wrap items-center gap-8">
+          <Link href="/contact" className="cta-solid">
             Request a briefing →
           </Link>
           <Link href="/portfolio" className="cta-link">

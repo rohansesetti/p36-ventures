@@ -8,7 +8,7 @@ export const briefingObjectives = [
   "Transaction Audit",
 ] as const;
 
-export const deskCities = ["Delhi", "New York", "London", "Other"] as const;
+export const deskCities = ["New York", "Miami", "London", "Delhi", "Other"] as const;
 
 export const isEmail = (v: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
 export const isUrl = (v: string) => /^https?:\/\/.+/.test(v);

@@ -112,8 +112,8 @@ export const selectedWork: SelectedWorkItem[] = [
     },
     logo: {
       src: "/logos/solaryn.svg",
-      width: 128,
-      height: 128,
+      width: 98,
+      height: 92,
       shape: "mark",
     },
     expand:
@@ -134,8 +134,8 @@ export const selectedWork: SelectedWorkItem[] = [
     },
     logo: {
       src: "/logos/ageless.svg",
-      width: 280,
-      height: 52,
+      width: 158,
+      height: 50,
       shape: "wide",
     },
     expand:

@@ -17,7 +17,7 @@ export function Opportunities() {
             </h2>
             <p className="max-w-[340px] text-[13.5px] leading-[1.65] text-ink-soft lg:text-right">
               The P36 Fellowship, analyst roles, and a scout network across
-              Delhi, New York, and London.
+              New York, Miami, London, and Delhi.
             </p>
           </div>
         </Reveal>

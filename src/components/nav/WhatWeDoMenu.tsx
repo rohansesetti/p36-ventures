@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import {
   getService,
@@ -10,6 +11,8 @@ import {
 } from "@/data/services";
 
 export function WhatWeDoMenu() {
+  const pathname = usePathname() ?? "/";
+  const active = pathname.startsWith("/what-we-do") || pathname.startsWith("/services");
   const [open, setOpen] = useState(false);
   const [catId, setCatId] = useState(serviceCategories[0].id);
   const [focusSlug, setFocusSlug] = useState<string | null>(
@@ -39,7 +42,10 @@ export function WhatWeDoMenu() {
     >
       <Link
         href="/what-we-do"
-        className="inline-flex items-center gap-1.5 font-sans text-[12px] font-medium tracking-[0.06em] text-ink no-underline transition-opacity hover:opacity-55"
+        aria-current={active ? "page" : undefined}
+        className={`inline-flex items-center gap-1.5 border-b pb-0.5 font-sans text-[12px] font-medium tracking-[0.06em] text-ink no-underline transition-opacity hover:opacity-55 ${
+          active ? "border-ink" : "border-transparent"
+        }`}
         aria-expanded={open}
         aria-haspopup="true"
         onFocus={() => setOpen(true)}

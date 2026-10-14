@@ -149,6 +149,49 @@ body::before {
     opacity: 0.55;
   }
 
+  /* Primary action: one per page. Secondary actions stay .cta-link. */
+  .cta-solid {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 44px;
+    padding: 0.8rem 1.4rem;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    text-decoration: none;
+    color: var(--paper);
+    background: var(--ink);
+    border: 1px solid var(--ink);
+    cursor: pointer;
+    transition:
+      background-color 0.25s,
+      border-color 0.25s;
+  }
+
+  .cta-solid:hover {
+    background: var(--pop);
+    border-color: var(--pop);
+  }
+
+  .cta-solid:focus-visible {
+    outline: 2px solid var(--pop);
+    outline-offset: 3px;
+  }
+
+  .cta-solid:disabled {
+    cursor: wait;
+    opacity: 0.5;
+  }
+
+  .cta-solid--sm {
+    min-height: 36px;
+    padding: 0.55rem 1rem;
+    font-size: 12px;
+  }
+
   .cta-link-light {
     display: inline-block;
     font-size: 13px;

@@ -110,8 +110,7 @@ export function FellowshipApplicationForm() {
           Application received.
         </p>
         <p className="mt-4 text-[15px] leading-[1.7] text-ink-soft">
-          If shortlisted, you will hear from us within {cohort.replyDays} days
-          to arrange an interview.
+          We reply to every application within {cohort.replyTime}.
         </p>
       </div>
     );
@@ -240,7 +239,7 @@ export function FellowshipApplicationForm() {
             <input id="f-ack-privacy" type="checkbox" name="ack-privacy" className="mt-1 h-4 w-4 shrink-0 accent-[var(--ink)]" {...aria("ack-privacy")} />
             <span>
               I have read the{" "}
-              <Link href="/privacy" target="_blank" rel="noopener" className="text-ink underline underline-offset-2">
+              <Link href="/privacy#applicants" target="_blank" rel="noopener" className="text-ink underline underline-offset-2">
                 privacy notice
               </Link>
               .
@@ -268,7 +267,7 @@ export function FellowshipApplicationForm() {
       ) : null}
 
       <button type="submit" disabled={sending} aria-busy={sending}
-        className="cta-link mt-2 cursor-pointer border-x-0 border-t-0 bg-transparent disabled:cursor-wait disabled:opacity-50">
+        className="cta-solid mt-2">
         {sending ? "Sending…" : "Submit application →"}
       </button>
     </form>

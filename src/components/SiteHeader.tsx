@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { BrandMark } from "@/components/BrandMark";
 import { WhatWeDoMenu } from "@/components/nav/WhatWeDoMenu";
@@ -20,6 +21,9 @@ const desktopLinks = navLinks.filter(
 );
 
 export function SiteHeader() {
+  const pathname = usePathname() ?? "/";
+  const isActive = (href: string) =>
+    pathname === href || pathname.startsWith(`${href}/`);
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -56,20 +60,27 @@ export function SiteHeader() {
             aria-label="Primary"
           >
             <WhatWeDoMenu />
-            {desktopLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="font-sans text-[12px] font-medium tracking-[0.06em] text-ink no-underline transition-opacity hover:opacity-55"
-              >
-                {link.label}
-              </Link>
-            ))}
+            {desktopLinks.map((link) => {
+              const active = isActive(link.href);
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  aria-current={active ? "page" : undefined}
+                  className={`border-b pb-0.5 font-sans text-[12px] font-medium tracking-[0.06em] text-ink no-underline transition-opacity hover:opacity-55 ${
+                    active ? "border-ink" : "border-transparent"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
             <Link
               href="/contact"
-              className="font-sans text-[12px] font-medium tracking-[0.06em] text-ink no-underline transition-opacity hover:opacity-55"
+              aria-current={isActive("/contact") ? "page" : undefined}
+              className="cta-solid cta-solid--sm ml-1"
             >
-              Contact
+              Request a briefing
             </Link>
           </nav>
 
@@ -116,20 +127,36 @@ export function SiteHeader() {
           </div>
 
           <nav className="flex min-h-0 flex-1 flex-col justify-center py-10" aria-label="Main">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="heading-serif border-t border-line py-4 text-[clamp(2rem,5.5vw,3.25rem)] font-light uppercase leading-none tracking-[0.02em] text-ink no-underline transition-opacity hover:opacity-55"
-                onClick={() => setOpen(false)}
-              >
-                {link.label}
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              const active = isActive(link.href);
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  aria-current={active ? "page" : undefined}
+                  className={`heading-serif flex items-baseline justify-between border-t border-line py-4 text-[clamp(2rem,5.5vw,3.25rem)] font-light uppercase leading-none tracking-[0.02em] no-underline transition-opacity hover:opacity-55 ${
+                    active ? "text-ink" : "text-ink-soft"
+                  }`}
+                  onClick={() => setOpen(false)}
+                >
+                  {link.label}
+                  {active ? (
+                    <span aria-hidden className="h-2 w-2 shrink-0 rounded-full bg-pop" />
+                  ) : null}
+                </Link>
+              );
+            })}
+            <Link
+              href="/contact"
+              className="cta-solid mt-8 self-start"
+              onClick={() => setOpen(false)}
+            >
+              Request a briefing →
+            </Link>
           </nav>
 
           <div className="flex shrink-0 flex-wrap justify-between gap-3 text-xs text-ink-faint">
-            <span>Delhi — New York — London</span>
+            <span>New York — Miami — London — Delhi</span>
             <a href="mailto:services@p36ventures.com" className="text-ink-soft no-underline">
               services@p36ventures.com
             </a>

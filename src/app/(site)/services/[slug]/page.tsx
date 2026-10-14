@@ -148,8 +148,8 @@ export default async function ServicePage({ params }: Props) {
           <h2 className="heading-serif max-w-[22ch] text-[clamp(1.5rem,2.8vw,2.125rem)] font-light leading-[1.2]">
             Briefings start with the situation, not a form.
           </h2>
-          <div className="mt-8 flex flex-wrap gap-8">
-            <Link href="/contact" className="cta-link">
+          <div className="mt-8 flex flex-wrap items-center gap-8">
+            <Link href="/contact" className="cta-solid">
               Request a briefing →
             </Link>
             <Link

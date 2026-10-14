@@ -1,25 +1,8 @@
 import { PhotoTint } from "@/components/ui/PhotoTint";
 import type { SelectedWorkItem } from "@/data/selectedWork";
 import Image from "next/image";
+import { logoDisplaySize } from "@/lib/logoSize";
 
-/**
- * Optical sizing: every logo gets roughly the same visual area on its plate,
- * so long wordmarks and round marks read as equal weight.
- */
-const LOGO_AREA = 3400; // px²
-const LOGO_MAX_W = 148;
-const LOGO_MAX_H = 44;
-
-function logoDisplaySize(width: number, height: number) {
-  const ratio = width / height;
-  let h = Math.min(LOGO_MAX_H, Math.sqrt(LOGO_AREA / ratio));
-  let w = h * ratio;
-  if (w > LOGO_MAX_W) {
-    w = LOGO_MAX_W;
-    h = w / ratio;
-  }
-  return { width: Math.round(w), height: Math.round(h) };
-}
 
 type MandatePhotoProps = {
   item: SelectedWorkItem;

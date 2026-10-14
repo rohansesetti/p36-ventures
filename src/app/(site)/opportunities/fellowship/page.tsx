@@ -38,7 +38,7 @@ export default function FellowshipPage() {
               </p>
             </div>
             <div className="flex flex-col gap-4 lg:col-span-4 lg:col-start-9 lg:items-end lg:text-right">
-              <Link href="/opportunities/fellowship/apply" className="cta-link">
+              <Link href="/opportunities/fellowship/apply" className="cta-solid">
                 Apply →
               </Link>
               <p className="text-[13px] leading-[1.6] text-ink-faint">
@@ -222,7 +222,7 @@ export default function FellowshipPage() {
             </p>
             <Link
               href="/opportunities/fellowship/apply"
-              className="cta-link mt-8"
+              className="cta-solid mt-8 self-start"
             >
               Apply →
             </Link>

@@ -16,7 +16,7 @@ export function ClosingCTA() {
             </p>
           </Reveal>
           <Reveal>
-            <Link href="/contact" className="cta-link mt-8">
+            <Link href="/contact" className="cta-solid mt-8 self-start">
               Request a briefing →
             </Link>
           </Reveal>

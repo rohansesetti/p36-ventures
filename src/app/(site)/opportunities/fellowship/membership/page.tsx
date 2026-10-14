@@ -4,7 +4,6 @@ import { PageHero } from "@/components/ui/PageHero";
 import {
   membership,
   membershipIncludes,
-  reimbursementCriteria,
 } from "@/data/fellowship";
 
 export const metadata: Metadata = {
@@ -74,40 +73,11 @@ export default function MembershipPage() {
                   Reimbursed in full if you are offered a P36 analyst role after
                   the Week 6 review.
                 </p>
-                <div className="mt-6 overflow-x-auto">
-                  <table className="w-full min-w-[34rem] border-collapse text-left text-[13.5px] leading-[1.55]">
-                    <thead>
-                      <tr className="border-b border-line">
-                        {["Criterion", "How it is measured", "Threshold", "Assessed by"].map(
-                          (h) => (
-                            <th
-                              key={h}
-                              scope="col"
-                              className="py-3 pr-4 text-[11px] font-medium uppercase tracking-[0.12em] text-ink-faint"
-                            >
-                              {h}
-                            </th>
-                          ),
-                        )}
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {reimbursementCriteria.map((row) => (
-                        <tr key={row.criterion} className="border-b border-line">
-                          <th scope="row" className="py-3.5 pr-4 font-normal text-ink">
-                            {row.criterion}
-                          </th>
-                          <td className="py-3.5 pr-4 text-ink-soft">{row.measure}</td>
-                          <td className="py-3.5 pr-4 text-ink-soft">{row.threshold}</td>
-                          <td className="py-3.5 text-ink-soft">{row.assessor}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-                <p className="mt-5 text-[14px] leading-[1.7] text-ink-soft">
-                  Meeting the criteria is the minimum. Invitations are rare and
-                  not guaranteed.
+                <p className={body}>
+                  Offers are made at P36&rsquo;s discretion, based on your
+                  execution during the cohort: the quality of your work, its
+                  reliability, and your judgement. Offers are rare and not
+                  guaranteed.
                 </p>
               </div>
             </div>
@@ -137,7 +107,12 @@ export default function MembershipPage() {
               <span className="heading-serif text-lg italic text-ink-faint">VI</span>
               <div>
                 <h2 className={h2}>Cancelling before the cohort starts</h2>
-                <p className={body}>[CANCELLATION POLICY]</p>
+                <p className={body}>
+                  Cancel at least 7 days before your start date, given in your
+                  selection email, for a full refund of the membership fee.
+                  Cancellations within 7 days of the start date are not
+                  refunded.
+                </p>
               </div>
             </div>
 
@@ -158,8 +133,8 @@ export default function MembershipPage() {
               </div>
             </div>
 
-            <div className="mt-12 flex flex-wrap gap-8">
-              <Link href="/opportunities/fellowship/apply" className="cta-link">
+            <div className="mt-12 flex flex-wrap items-center gap-8">
+              <Link href="/opportunities/fellowship/apply" className="cta-solid">
                 Apply →
               </Link>
               <Link href="/opportunities/fellowship" className="cta-link">

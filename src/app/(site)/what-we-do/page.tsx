@@ -45,7 +45,7 @@ export default function WhatWeDoPage() {
             Not sure which practice.{" "}
             <span className="text-ink-soft">That is the briefing.</span>
           </p>
-          <Link href="/contact" className="cta-link mt-8">
+          <Link href="/contact" className="cta-solid mt-8">
             Request a briefing →
           </Link>
         </div>

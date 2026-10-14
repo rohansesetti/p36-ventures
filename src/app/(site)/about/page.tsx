@@ -186,7 +186,7 @@ export default function AboutPage() {
       <section className="section-v2 border-t border-line">
         <div className="wrap">
           <p className="heading-serif mb-8 text-[clamp(1.375rem,2.6vw,1.875rem)] font-light">
-            Offices
+            Teams in
           </p>
           <div className="max-w-xl">
             {offices.map((city, i) => (
@@ -212,8 +212,8 @@ export default function AboutPage() {
             Briefings start with the situation.{" "}
             <span className="text-ink-soft">Not a deck.</span>
           </p>
-          <div className="mt-8 flex flex-wrap gap-8">
-            <Link href="/contact" className="cta-link">
+          <div className="mt-8 flex flex-wrap items-center gap-8">
+            <Link href="/contact" className="cta-solid">
               Request a briefing →
             </Link>
             <Link

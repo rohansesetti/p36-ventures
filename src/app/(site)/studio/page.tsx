@@ -146,7 +146,7 @@ export default function StudioPage() {
               If the work sits across both practices, that is the first thing we
               establish.
             </h2>
-            <Link href="/contact" className="cta-link mt-6">
+            <Link href="/contact" className="cta-solid mt-6">
               Request a briefing →
             </Link>
           </div>

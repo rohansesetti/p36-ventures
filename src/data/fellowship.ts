@@ -7,8 +7,8 @@ export const cohort = {
   name: "Cohort 4",
   admissions: "Rolling admissions",
   closeDate: "October 31",
-  hoursPerWeek: "[X]",
-  replyDays: "[X]",
+  hoursPerWeek: "10–15",
+  replyTime: "24 hours",
 };
 
 /**
@@ -111,27 +111,6 @@ export const suits = [
   "Aspiring search fund operators",
 ];
 
-export const reimbursementCriteria = [
-  {
-    criterion: "Task completion",
-    measure: "[e.g. sprint deliverables submitted on time]",
-    threshold: "[X]%",
-    assessor: "[Pod Lead]",
-  },
-  {
-    criterion: "Attendance",
-    measure: "[e.g. daily standups attended]",
-    threshold: "[X]%",
-    assessor: "[Cohort Managing Director]",
-  },
-  {
-    criterion: "Quality review",
-    measure: "[e.g. average rubric score across reviewed outputs]",
-    threshold: "[X / 5]",
-    assessor: "[Core team reviewer]",
-  },
-];
-
 export type Faq = { q: string; a: string };
 
 export const faqs: Faq[] = [
@@ -149,7 +128,7 @@ export const faqs: Faq[] = [
   },
   {
     q: "Is it remote?",
-    a: "[Remote / hybrid / in-person — confirm].",
+    a: "Yes. The Fellowship is fully remote.",
   },
   {
     q: "Is the certificate accredited?",

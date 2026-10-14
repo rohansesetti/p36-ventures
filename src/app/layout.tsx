@@ -42,6 +42,20 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-paper font-sans font-normal text-ink antialiased">
         {children}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "P36 Ventures",
+              url: "https://www.p36ventures.com",
+              logo: "https://www.p36ventures.com/p36-logo.png",
+              email: "services@p36ventures.com",
+              sameAs: ["https://www.linkedin.com/company/p36-ventures"],
+            }),
+          }}
+        />
         {/* Vercel Web Analytics: switch on in Vercel → Project → Analytics. No cookies. */}
         <Script src="/_vercel/insights/script.js" strategy="afterInteractive" />
       </body>

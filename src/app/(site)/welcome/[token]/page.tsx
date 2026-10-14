@@ -78,7 +78,7 @@ export default async function WelcomePage({ params }: Props) {
 
             <div className="mt-10">
               {stripeLink ? (
-                <a href={stripeLink} className="cta-link">
+                <a href={stripeLink} className="cta-solid">
                   Activate membership →
                 </a>
               ) : (

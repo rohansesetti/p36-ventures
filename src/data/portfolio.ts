@@ -23,7 +23,10 @@ export type PortfolioItem = {
   outcomeEmphasis?: string;
   /** Public path under `/public`, e.g. `/logos/isa-energy.png` */
   logoSrc?: string;
-  /** When true, show only the logo (no initials tile). */
+  /** Intrinsic size of the logo file, used for optical sizing. */
+  logoWidth?: number;
+  logoHeight?: number;
+  /** Legacy flag, no longer used: every card now shows the logo alone. */
   logoOnly?: boolean;
   /** External company site (opens in new tab). */
   websiteUrl?: string;
@@ -37,6 +40,8 @@ export const portfolioItems: PortfolioItem[] = [
     initials: "PX",
     initialsAccent: "navy",
     logoSrc: "/logos/prospex-clean.png",
+    logoWidth: 192,
+    logoHeight: 90,
     result:
       "Capital advisory and go-to-market strategy for a B2B AI company. Built the go-to-market plan and rewrote the investor story ahead of a $600K seed round. Ongoing work includes corporate structuring and executive coaching.",
     outcomeEmphasis: "$600K seed round",
@@ -48,6 +53,8 @@ export const portfolioItems: PortfolioItem[] = [
     initials: "TI",
     initialsAccent: "forest",
     logoSrc: "/logos/terra-initiative-clean.png",
+    logoWidth: 377,
+    logoHeight: 136,
     result:
       "Lead capital advisor to a regional regeneration initiative. Built the $200M financial architecture and the investment memorandum, and now manage institutional investor relations as the program scales across the region.",
     outcomeEmphasis: "$200M financial architecture",
@@ -59,6 +66,8 @@ export const portfolioItems: PortfolioItem[] = [
     initials: "IE",
     initialsAccent: "orange",
     logoSrc: "/logos/isa-energy-clean.png",
+    logoWidth: 176,
+    logoHeight: 42,
     result:
       "Capital readiness and transaction advisory for a quantum energy company. Built the financial model and strategic plan for a high-stakes institutional funding cycle.",
     outcomeEmphasis: "high-stakes institutional funding cycle",
@@ -70,6 +79,8 @@ export const portfolioItems: PortfolioItem[] = [
     initials: "SY",
     initialsAccent: "navy",
     logoSrc: "/logos/solaryn.svg",
+    logoWidth: 98,
+    logoHeight: 92,
     logoOnly: true,
     result:
       "Fractional CFO and corporate structure for an AGI and defense company. Managed the close of $1.3M in funding and set up the governance and financial controls required for national security contracts.",
@@ -81,6 +92,9 @@ export const portfolioItems: PortfolioItem[] = [
     category: "FinTech",
     initials: "AM",
     initialsAccent: "rose",
+    logoSrc: "/logos/ageless.svg",
+    logoWidth: 158,
+    logoHeight: 50,
     result:
       "Operating leadership for a wellness-focused micro-VC. Providing Fractional CEO services to professionalize the fund and strengthen portfolio oversight.",
     outcomeEmphasis: "Fractional CEO services",
@@ -92,6 +106,8 @@ export const portfolioItems: PortfolioItem[] = [
     initials: "UC",
     initialsAccent: "forest",
     logoSrc: "/logos/uci-clean.png",
+    logoWidth: 143,
+    logoHeight: 167,
     result:
       "Fundraising and institutional partnership advisory. Leading global capital initiatives that expand international cooperation programs and secure partnerships across multiple institutions.",
     outcomeEmphasis: "global capital initiatives",
@@ -103,6 +119,8 @@ export const portfolioItems: PortfolioItem[] = [
     initials: "RN",
     initialsAccent: "orange",
     logoSrc: "/logos/rippling-nature-clean.png",
+    logoWidth: 123,
+    logoHeight: 123,
     websiteUrl: "https://www.ripplingnature.com/",
     result:
       "Strategic finance and partnership advisory for a Houston venture combining Deep-Tech with sustainability, supporting urban regeneration pilots, university collaborations, and initiatives from bayou agriculture to community-scale resilience.",
@@ -114,6 +132,9 @@ export const portfolioItems: PortfolioItem[] = [
     category: "Regen",
     initials: "RA",
     initialsAccent: "blue",
+    logoSrc: "/logos/reserva-azul-clean.png",
+    logoWidth: 969,
+    logoHeight: 273,
     websiteUrl: "https://www.gotaazulcr.com/en/",
     result:
       "Growth and go-to-market advisory for a spring water brand from Costa Rica's Nicoya Blue Zone. Supporting B2B programs, compliance, and distribution as the brand supplies certified mountain spring water nationwide across Costa Rica.",
