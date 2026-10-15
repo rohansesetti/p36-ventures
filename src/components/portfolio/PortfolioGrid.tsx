@@ -7,6 +7,7 @@ import {
   type PortfolioItem,
 } from "@/data/portfolio";
 import Image from "next/image";
+import { logoDisplaySize } from "@/lib/logoSize";
 import type { ReactNode } from "react";
 import { useMemo, useState } from "react";
 
@@ -124,36 +125,24 @@ export function PortfolioGrid() {
               data-cursor-grow
               className="group border-0.5 border-navy/10 bg-white p-6 shadow-[0_1px_3px_rgba(10,25,47,0.05)] transition-[border-color,box-shadow] hover:border-navy/15 hover:shadow-[0_2px_10px_rgba(10,25,47,0.07)]"
             >
-              <div className="flex items-center gap-3">
-                {item.logoSrc && item.logoOnly ? (
-                  <div className="relative h-[4.5rem] w-[4.5rem] shrink-0 grayscale opacity-90 transition-[filter,opacity] duration-300 group-hover:opacity-100 group-hover:grayscale-0">
-                    <Image
-                      src={item.logoSrc}
-                      alt={`${item.name} logo`}
-                      fill
-                      className="object-contain"
-                      sizes="72px"
-                    />
-                  </div>
+              <div className="flex h-16 items-center border-b border-navy-900/[0.06] pb-6">
+                {item.logoSrc && item.logoWidth && item.logoHeight ? (
+                  <Image
+                    src={item.logoSrc}
+                    alt={`${item.name} logo`}
+                    width={item.logoWidth}
+                    height={item.logoHeight}
+                    quality={100}
+                    sizes="148px"
+                    className="object-contain opacity-90 grayscale transition-[filter,opacity] duration-300 group-hover:opacity-100 group-hover:grayscale-0"
+                    style={logoDisplaySize(item.logoWidth, item.logoHeight)}
+                  />
                 ) : (
-                  <>
-                    <div
-                      className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-sm border border-navy-900/10 bg-transparent text-lg font-semibold text-navy-900/85 grayscale transition-[filter,background-color,border-color,color] duration-300 group-hover:grayscale-0 ${INITIALS_HOVER[item.initialsAccent]}`}
-                    >
-                      {item.initials}
-                    </div>
-                    {item.logoSrc ? (
-                      <div className="relative h-14 w-[min(200px,calc(100%-3.75rem))] shrink bg-transparent grayscale transition-all duration-300 group-hover:grayscale-0">
-                        <Image
-                          src={item.logoSrc}
-                          alt={`${item.name} logo`}
-                          fill
-                          className="bg-transparent object-contain object-left"
-                          sizes="200px"
-                        />
-                      </div>
-                    ) : null}
-                  </>
+                  <div
+                    className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-sm border border-navy-900/10 text-base font-semibold text-navy-900/85 transition-[background-color,border-color,color] duration-300 ${INITIALS_HOVER[item.initialsAccent]}`}
+                  >
+                    {item.initials}
+                  </div>
                 )}
               </div>
               <p className="mt-6 text-[11px] font-bold uppercase tracking-[0.2em] text-navy-900/72">

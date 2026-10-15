@@ -10,14 +10,14 @@ export function SelectedWork() {
         <Reveal>
           <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <p className="label-v2 mb-3">Mandates</p>
+              <p className="label-v2 mb-3">Selected work</p>
               <h2 className="heading-serif max-w-[28rem] text-[clamp(1.75rem,3.2vw,2.5rem)] font-light leading-[1.15]">
                 Selected work
               </h2>
             </div>
             <p className="max-w-[320px] text-[13.5px] leading-[1.65] text-ink-soft sm:text-right">
-              Capital and studio engagements across deep tech, infrastructure,
-              and institutional counterparties.
+              Capital and studio work across deep tech, energy, regeneration,
+              and education.
             </p>
           </div>
         </Reveal>
@@ -58,7 +58,7 @@ export function SelectedWork() {
 
       <div className="wrap">
         <Link href="/portfolio" className="cta-link mt-10">
-          View all mandates →
+          View all work →
         </Link>
       </div>
     </section>

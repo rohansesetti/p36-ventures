@@ -7,7 +7,7 @@ import { selectedWork } from "@/data/selectedWork";
 export const metadata: Metadata = {
   title: "Portfolio | P36 Ventures",
   description:
-    "Studio and capital mandates across deep tech, regeneration, consumer, and institutional education.",
+    "Studio and capital work across deep tech, regeneration, consumer, and institutional education.",
 };
 
 const studioCount = selectedWork.filter((i) => i.type === "studio").length;
@@ -15,9 +15,9 @@ const capitalCount = selectedWork.filter((i) => i.type === "capital").length;
 
 const summary = [
   { num: `${selectedWork.length}`, label: "Ventures built or financed" },
-  { num: `${studioCount}`, label: "Studio mandates" },
-  { num: `${capitalCount}`, label: "Capital mandates" },
-  { num: "$200M+", label: "Capital architected" },
+  { num: `${studioCount}`, label: "Studio companies" },
+  { num: `${capitalCount}`, label: "Capital raises" },
+  { num: "$200M+", label: "Capital structured" },
 ] as const;
 
 export default function PortfolioPage() {
@@ -31,7 +31,7 @@ export default function PortfolioPage() {
             <em className="font-light italic">built and backed</em>.
           </>
         }
-        lead="Every mandate here is one we ran ourselves — as co-founder, as fractional leadership, or as the team that engineered the capital stack. Open any card to read what we actually did."
+        lead="Every company here is one we worked on ourselves — as co-founder, as fractional leadership, or as the team that structured the capital. Open any card to read what we actually did."
       />
 
       <section className="section-v2">
@@ -55,7 +55,7 @@ export default function PortfolioPage() {
             <h2 className="heading-serif max-w-[20ch] text-[clamp(1.5rem,2.8vw,2.125rem)] font-light leading-[1.2]">
               Building something that belongs on this list?
             </h2>
-            <Link href="/contact" className="cta-link mt-6">
+            <Link href="/contact" className="cta-solid mt-6">
               Start a conversation →
             </Link>
           </div>

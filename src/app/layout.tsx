@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Fraunces, IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 
@@ -15,9 +16,18 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.p36ventures.com"),
   title: "P36 Ventures — Capital Advisory & Venture Studio",
   description:
-    "P36 structures capital, diligence, and operating infrastructure for companies from formation through exit.",
+    "P36 structures capital, diligence, and operating infrastructure for companies from formation through execution.",
+  openGraph: {
+    type: "website",
+    siteName: "P36 Ventures",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
 };
 
 export default function RootLayout({
@@ -32,6 +42,22 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-paper font-sans font-normal text-ink antialiased">
         {children}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "P36 Ventures",
+              url: "https://www.p36ventures.com",
+              logo: "https://www.p36ventures.com/p36-logo.png",
+              email: "services@p36ventures.com",
+              sameAs: ["https://www.linkedin.com/company/p36-ventures"],
+            }),
+          }}
+        />
+        {/* Vercel Web Analytics: switch on in Vercel → Project → Analytics. No cookies. */}
+        <Script src="/_vercel/insights/script.js" strategy="afterInteractive" />
       </body>
     </html>
   );

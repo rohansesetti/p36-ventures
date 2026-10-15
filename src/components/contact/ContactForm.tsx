@@ -3,13 +3,7 @@
 import { FormEvent, useState } from "react";
 import { useSearchParams } from "next/navigation";
 
-const objectives = [
-  "Capital Sourcing",
-  "GTM Execution",
-  "Structural Governance",
-  "Exit Readiness",
-  "Transaction Audit",
-] as const;
+import { briefingObjectives as objectives } from "@/data/forms";
 
 export function ContactForm() {
   const searchParams = useSearchParams();
@@ -17,29 +11,57 @@ export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [email, setEmail] = useState(prefilledEmail);
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmitted(true);
+    if (sending) return;
+    setError("");
+    const data = Object.fromEntries(new FormData(e.currentTarget));
+    setSending(true);
+    try {
+      const res = await fetch("/api/briefing", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) {
+        const payload = await res.json().catch(() => null);
+        setError(payload?.error ?? "Something went wrong. Try again, or email services@p36ventures.com.");
+        return;
+      }
+      setSubmitted(true);
+    } catch {
+      setError("Something went wrong. Check your connection and try again.");
+    } finally {
+      setSending(false);
+    }
   }
 
   if (submitted) {
     return (
-      <p className="text-sm leading-relaxed text-navy-900/85">
-        Thank you. Your mandate inquiry has been received—we review a limited
-        number of partnerships each year and will respond if there is a fit.
-      </p>
+      <div className="max-w-[36rem]" role="status">
+        <p className="heading-serif text-[1.5rem] font-light leading-[1.3]">
+          Inquiry received.
+        </p>
+        <p className="mt-4 text-[15px] leading-[1.7] text-ink-soft">
+          We take on a limited number of companies each year and will respond
+          within two business days if there is a fit.
+        </p>
+      </div>
     );
   }
 
   const field =
-    "mt-3 w-full border-0 border-b border-navy-900/20 bg-transparent py-2.5 text-sm text-navy-900 outline-none transition-colors placeholder:text-navy-900/35 focus:border-navy-900/50";
+    "mt-2 w-full border-0 border-b border-line bg-transparent py-2.5 text-[15px] text-ink outline-none transition-colors placeholder:text-ink-faint focus:border-ink";
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-10">
+    <form onSubmit={handleSubmit} className="relative max-w-[36rem] space-y-8">
       <div>
         <label
           htmlFor="contact-name"
-          className="block text-[10px] font-semibold uppercase tracking-widest text-navy-900/45"
+          className="block text-[11px] font-medium uppercase tracking-[0.14em] text-ink-faint"
         >
           Name
         </label>
@@ -55,7 +77,7 @@ export function ContactForm() {
       <div>
         <label
           htmlFor="contact-email"
-          className="block text-[10px] font-semibold uppercase tracking-widest text-navy-900/45"
+          className="block text-[11px] font-medium uppercase tracking-[0.14em] text-ink-faint"
         >
           Institutional email
         </label>
@@ -73,7 +95,7 @@ export function ContactForm() {
       <div>
         <label
           htmlFor="contact-linkedin"
-          className="block text-[10px] font-semibold uppercase tracking-widest text-navy-900/45"
+          className="block text-[11px] font-medium uppercase tracking-[0.14em] text-ink-faint"
         >
           LinkedIn
         </label>
@@ -90,7 +112,7 @@ export function ContactForm() {
       <div>
         <label
           htmlFor="contact-objective"
-          className="block text-[10px] font-semibold uppercase tracking-widest text-navy-900/45"
+          className="block text-[11px] font-medium uppercase tracking-[0.14em] text-ink-faint"
         >
           Primary objective
         </label>
@@ -100,7 +122,7 @@ export function ContactForm() {
           required
           className={`${field} cursor-pointer appearance-none bg-[length:12px] bg-[right_0_top_50%] bg-no-repeat pr-8`}
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 12 8'%3E%3Cpath stroke='%230A192F' stroke-opacity='0.35' stroke-linecap='round' stroke-width='1' d='m1 1.5 5 4 5-4'/%3E%3C/svg%3E")`,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 12 8'%3E%3Cpath stroke='%231A1A1A' stroke-opacity='0.45' stroke-linecap='round' stroke-width='1' d='m1 1.5 5 4 5-4'/%3E%3C/svg%3E")`,
           }}
           defaultValue=""
         >
@@ -114,11 +136,22 @@ export function ContactForm() {
           ))}
         </select>
       </div>
+      <div aria-hidden className="absolute left-[-10000px] top-auto h-px w-px overflow-hidden">
+        <label htmlFor="contact-website">Website</label>
+        <input id="contact-website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+      </div>
+      {error ? (
+        <p role="alert" className="border-l-2 border-[#9b2c2c] pl-4 text-[14px] text-[#9b2c2c]">
+          {error}
+        </p>
+      ) : null}
       <button
         type="submit"
-        className="mt-4 w-full border border-navy-900/20 bg-white px-6 py-3.5 text-[10px] font-semibold uppercase tracking-widest text-navy-900 shadow-[0_1px_2px_rgba(10,25,47,0.05)] transition-colors hover:border-navy-900/40 hover:bg-white"
+        disabled={sending}
+        aria-busy={sending}
+        className="cta-solid mt-2"
       >
-        Submit inquiry
+        {sending ? "Sending…" : "Submit inquiry →"}
       </button>
     </form>
   );

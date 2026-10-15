@@ -1,0 +1,49 @@
+import type { Metadata } from "next";
+import { Suspense } from "react";
+import { PageHero } from "@/components/ui/PageHero";
+import { FellowshipApplicationForm } from "@/components/fellowship/FellowshipApplicationForm";
+import { cohort, selection } from "@/data/fellowship";
+
+export const metadata: Metadata = {
+  title: "Apply | The P36 Fellowship",
+  description: "Apply for the next cohort of the P36 Fellowship.",
+};
+
+export default function FellowshipApplyPage() {
+  return (
+    <main className="relative flex-1 bg-paper">
+      <PageHero
+        eyebrow="The P36 Fellowship"
+        title="Apply."
+        lead={`${cohort.admissions}. ${cohort.name} closes ${cohort.closeDate}.`}
+      />
+
+      <section className="section-v2">
+        <div className="wrap grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-8">
+          <div className="lg:col-span-4">
+            <p className="label-v2 mb-5">Process</p>
+            <ol className="flex flex-col">
+              {selection.map((s) => (
+                <li
+                  key={s.rn}
+                  className="grid grid-cols-[40px_1fr] gap-4 border-t border-line py-4 last:border-b"
+                >
+                  <span className="heading-serif italic text-ink-faint">{s.rn}</span>
+                  <span className="text-[14.5px] text-ink">{s.title}</span>
+                </li>
+              ))}
+            </ol>
+            <p className="mt-6 text-[13.5px] leading-[1.65] text-ink-soft">
+              Nothing to pay to apply.
+            </p>
+          </div>
+          <div className="lg:col-span-7 lg:col-start-6">
+            <Suspense fallback={null}>
+              <FellowshipApplicationForm />
+            </Suspense>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}

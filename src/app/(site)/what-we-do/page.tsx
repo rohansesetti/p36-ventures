@@ -6,7 +6,7 @@ import { serviceCategories, servicesInCategory } from "@/data/services";
 export const metadata: Metadata = {
   title: "What we do | P36 Ventures",
   description:
-    "Fundraising support, transaction advisory, and studio operating — each as a scoped mandate with a named deliverable.",
+    "Fundraising support, transaction advisory, and studio work, each scoped with a named deliverable.",
 };
 
 export default function WhatWeDoPage() {
@@ -17,7 +17,7 @@ export default function WhatWeDoPage() {
           <p className="heading-serif max-w-[40rem] text-[clamp(1.5rem,3vw,2.25rem)] font-light leading-[1.3]">
             Practices, not packages.{" "}
             <span className="text-ink-soft">
-              Each line is a mandate with a named deliverable.
+              Each line comes with a named deliverable.
             </span>
           </p>
         </div>
@@ -45,7 +45,7 @@ export default function WhatWeDoPage() {
             Not sure which practice.{" "}
             <span className="text-ink-soft">That is the briefing.</span>
           </p>
-          <Link href="/contact" className="cta-link mt-8">
+          <Link href="/contact" className="cta-solid mt-8">
             Request a briefing →
           </Link>
         </div>

@@ -70,7 +70,7 @@ const tracks = [
     id: "scale",
     range: "Scale",
     title: "Scale",
-    desc: "Fractional leadership and governance as the company institutionalises.",
+    desc: "Fractional leadership and governance as the company matures.",
     href: "/what-we-do",
     accent: true,
     cells: [

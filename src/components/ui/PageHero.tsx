@@ -4,10 +4,12 @@ type PageHeroProps = {
   eyebrow: string;
   title: ReactNode;
   lead?: string;
+  /** Optional row under the lead, e.g. meta line and CTA. */
+  children?: ReactNode;
 };
 
 /** Standard opener for inner pages — clears the fixed header on its own. */
-export function PageHero({ eyebrow, title, lead }: PageHeroProps) {
+export function PageHero({ eyebrow, title, lead, children }: PageHeroProps) {
   return (
     <header className="border-b border-line pt-32 pb-12 lg:pt-36 lg:pb-16">
       <div className="wrap">
@@ -20,6 +22,7 @@ export function PageHero({ eyebrow, title, lead }: PageHeroProps) {
             {lead}
           </p>
         ) : null}
+        {children}
       </div>
     </header>
   );

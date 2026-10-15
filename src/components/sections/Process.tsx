@@ -4,22 +4,22 @@ const steps = [
   {
     rn: "I",
     title: "Diagnose",
-    desc: "We find the legal and financial gaps quietly capping the valuation.",
+    desc: "We find the legal and financial gaps holding back the valuation.",
   },
   {
     rn: "II",
     title: "Structure",
-    desc: "We engineer the right blend of dilutive and non-dilutive capital for this stage.",
+    desc: "We put together the right mix of equity, debt and non-dilutive funding for the stage.",
   },
   {
     rn: "III",
     title: "Operate",
-    desc: "We embed as fractional leadership to drive velocity while the team scales.",
+    desc: "We step in as fractional leadership and keep the company moving while the team grows.",
   },
   {
     rn: "IV",
-    title: "Exit",
-    desc: "We professionalize governance and the data room ahead of a sale.",
+    title: "Scale",
+    desc: "We build the governance and reporting that let the company keep raising and growing.",
   },
 ] as const;
 
@@ -28,7 +28,7 @@ export function Process() {
     <section id="process" className="section-v2 relative z-[1]">
       <div className="wrap">
         <Reveal>
-          <p className="label-v2 mb-5">How a mandate runs</p>
+          <p className="label-v2 mb-5">How an engagement runs</p>
         </Reveal>
 
         <Reveal>

@@ -4,7 +4,7 @@ import { opportunities } from "@/data/opportunities";
 import { FormEvent, useState } from "react";
 import { useSearchParams } from "next/navigation";
 
-const cities = ["Delhi", "New York", "London", "Other"] as const;
+import { deskCities as cities } from "@/data/forms";
 
 const field =
   "mt-2 w-full border-0 border-b border-line bg-transparent py-2.5 text-[15px] text-ink outline-none transition-colors placeholder:text-ink-faint focus:border-ink";
@@ -22,9 +22,32 @@ export function OpportunityForm() {
   const known = opportunities.some((o) => o.id === prefilledRole);
   const [submitted, setSubmitted] = useState(false);
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmitted(true);
+    if (sending) return;
+    setError("");
+    const data = Object.fromEntries(new FormData(e.currentTarget));
+    setSending(true);
+    try {
+      const res = await fetch("/api/desks", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) {
+        const payload = await res.json().catch(() => null);
+        setError(payload?.error ?? "Something went wrong. Try again, or email services@p36ventures.com.");
+        return;
+      }
+      setSubmitted(true);
+    } catch {
+      setError("Something went wrong. Check your connection and try again.");
+    } finally {
+      setSending(false);
+    }
   }
 
   if (submitted) {
@@ -36,7 +59,7 @@ export function OpportunityForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-[36rem] space-y-8">
+    <form onSubmit={handleSubmit} className="relative max-w-[36rem] space-y-8">
       <div>
         <label htmlFor="opp-role" className={label}>
           Role
@@ -135,11 +158,22 @@ export function OpportunityForm() {
           className={`${field} resize-y`}
         />
       </div>
+      <div aria-hidden className="absolute left-[-10000px] top-auto h-px w-px overflow-hidden">
+        <label htmlFor="opp-website">Website</label>
+        <input id="opp-website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+      </div>
+      {error ? (
+        <p role="alert" className="border-l-2 border-[#9b2c2c] pl-4 text-[14px] text-[#9b2c2c]">
+          {error}
+        </p>
+      ) : null}
       <button
         type="submit"
-        className="cta-link mt-2 cursor-pointer border-none bg-transparent"
+        disabled={sending}
+        aria-busy={sending}
+        className="cta-solid mt-2"
       >
-        Submit application →
+        {sending ? "Sending…" : "Submit application →"}
       </button>
     </form>
   );

@@ -16,7 +16,7 @@ const arms = [
   {
     id: "capital",
     title: "Capital",
-    desc: "We design the stack and run the process: modelling, memorandum, data room, and coverage through close. Scoped as a transaction, not a retainer.",
+    desc: "We design the stack and run the process: modeling, memorandum, data room, and coverage through close. Scoped as a transaction, not a retainer.",
     href: "/studio#capital",
     cta: "Capital practice →",
     image: "/photos/fields/capital.jpg",

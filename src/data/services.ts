@@ -91,7 +91,7 @@ export const services: Service[] = [
       },
       {
         title: "Install",
-        body: "Forecast, cash controls, and a board calendar. The artefacts leave our desk; the cadence stays.",
+        body: "Forecast, cash controls, and a board calendar. The artifacts leave our desk; the cadence stays.",
       },
       {
         title: "Hold the seat",
@@ -114,7 +114,7 @@ export const services: Service[] = [
     icon: "globe",
     categoryId: "fundraising",
     eyebrow: "Capital raising",
-    lead: "A round is a transaction. We design the process, write the materials, cover the right desks, and stay on it through term sheet and close — not as a coach on the sideline.",
+    lead: "A round is a transaction. We design the process, write the materials, approach the right investors, and stay on it through term sheet and close — not as a coach on the sideline.",
     when: [
       {
         title: "The last raise was informal",
@@ -136,7 +136,7 @@ export const services: Service[] = [
       },
       {
         title: "Build the package",
-        body: "Narrative, model, data room, and Q&A. One story across every artefact.",
+        body: "Narrative, model, data room, and Q&A. One story across every artifact.",
       },
       {
         title: "Run the process",
@@ -154,8 +154,8 @@ export const services: Service[] = [
   },
   {
     slug: "financial-modelling",
-    title: "Financial modelling",
-    forLine: "for forecasts, scenarios, and valuation defence",
+    title: "Financial modeling",
+    forLine: "for forecasts, scenarios, and valuation defense",
     icon: "bars",
     categoryId: "fundraising",
     eyebrow: "Analytics",
@@ -204,11 +204,11 @@ export const services: Service[] = [
     icon: "hex",
     categoryId: "fundraising",
     eyebrow: "Coverage",
-    lead: "The right desks, in the right order, with a story they can take to IC. After close, the same discipline on updates — so the next round starts warmer than the last.",
+    lead: "The right investors, in the right order, with a story they can take to their investment committee. After close, the same discipline on updates — so the next round starts warmer than the last.",
     when: [
       {
         title: "You do not know who should be in the book",
-        body: "Stage, cheque size, sector, and geography have to match. We build the book that way.",
+        body: "Stage, check size, sector, and geography have to match. We build the investor list that way.",
       },
       {
         title: "Outreach has gone cold",
@@ -343,7 +343,7 @@ export const services: Service[] = [
     when: [
       {
         title: "A data room exists in name only",
-        body: "Drive folders and stale PDFs. We rebuild it as a diligence artefact.",
+        body: "Drive folders and stale PDFs. We rebuild it as a diligence artifact.",
       },
       {
         title: "You have not been through this before",
@@ -384,7 +384,7 @@ export const services: Service[] = [
     icon: "nodes",
     categoryId: "transactions",
     eyebrow: "M&A",
-    lead: "When the event is a sale, a purchase, or a structured round, we run the work around it — positioning, materials, counterparties, and the close. Boutique coverage, institutional artefacts.",
+    lead: "When the event is a sale, a purchase, or a structured round, we run the work around it — positioning, materials, counterparties, and the close. Boutique coverage, institutional artifacts.",
     when: [
       {
         title: "An inbound has arrived",
@@ -406,7 +406,7 @@ export const services: Service[] = [
       },
       {
         title: "Prepare",
-        body: "CIM or investment memo, model, and room. Same standard as a bank process, without the bank theatre.",
+        body: "CIM or investment memo, model, and room. Same standard as a bank process, without the bank overhead.",
       },
       {
         title: "Execute",
