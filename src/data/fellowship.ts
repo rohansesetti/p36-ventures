@@ -71,29 +71,29 @@ export const fellowshipSteps = [
 export type Workstream = {
   id: string;
   title: string;
+  /** "Live projects" or "Training-led": shown on the page so expectations are clear. */
+  mode: string;
   output: string;
 };
 
 export const workstreams: Workstream[] = [
   {
     id: "venture",
-    title: "Venture & capital",
-    output: "Seed and Series A models, cap tables, investor teasers.",
+    title: "Venture capital",
+    mode: "Live projects",
+    output: "Screening real companies, market sizing, financial models, and investment memos.",
   },
   {
-    id: "transactions",
-    title: "Transactions",
-    output: "Quality-of-earnings checks, add-back verification, LBOs.",
+    id: "consulting",
+    title: "Consulting",
+    mode: "Live projects",
+    output: "P&L analysis, margin reviews, and recommendations for real businesses.",
   },
   {
-    id: "real-assets",
-    title: "Real assets",
-    output: "T12 underwriting, cap rates, DSCR, investment memos.",
-  },
-  {
-    id: "operating-finance",
-    title: "Operating finance",
-    output: "Normalized P&Ls, margin reviews, grant scans.",
+    id: "mna",
+    title: "M&A",
+    mode: "Training-led",
+    output: "Case studies and practice deals: sourcing, quality of earnings, LBO models, and buyer memos.",
   },
 ];
 
@@ -121,6 +121,10 @@ export const faqs: Faq[] = [
   {
     q: "What happens after six weeks?",
     a: "You keep the templates and certificate. Analyst roles are filled by referral or for exceptional candidates, and a standout fellow may be offered one. These roles are commission-only, earnings are not guaranteed, and terms are agreed in writing first.",
+  },
+  {
+    q: "Will I work on real projects?",
+    a: "In the VC and consulting tracks, yes: you work directly on real projects, supervised and reviewed by the team. The M&A track is mostly training, built on case studies and practice deals.",
   },
   {
     q: "How much time does it take?",

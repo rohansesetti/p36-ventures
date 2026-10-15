@@ -127,9 +127,14 @@ export default function FellowshipPage() {
                   i === workstreams.length - 1 ? "border-b border-line" : ""
                 }`}
               >
-                <h2 className="heading-serif text-[clamp(1.375rem,2.4vw,1.75rem)] font-light">
-                  {ws.title}
-                </h2>
+                <div>
+                  <h2 className="heading-serif text-[clamp(1.375rem,2.4vw,1.75rem)] font-light">
+                    {ws.title}
+                  </h2>
+                  <p className="mt-1 text-[11px] font-medium uppercase tracking-[0.12em] text-ink-faint">
+                    {ws.mode}
+                  </p>
+                </div>
                 <p className="text-[14.5px] leading-[1.7] text-ink-soft">
                   {ws.output}
                 </p>

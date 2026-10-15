@@ -73,9 +73,9 @@ export default function PrivacyPage() {
                 alumni network.
               </li>
               <li className={li}>
-                <span className="text-ink">If you are selected:</span> payment
-                for the membership is handled by Stripe. We never see or store
-                your card details.
+                <span className="text-ink">If you are selected:</span> we email
+                you an invoice for the membership through Square, which handles
+                the payment. We never see or store your card details.
               </li>
             </ul>
 
