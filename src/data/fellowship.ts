@@ -24,7 +24,6 @@ export const stats: { value: string; label: string }[] = [
 
 export const membership = {
   price: "$49",
-  reimbursementDays: 14,
   contact: "services@p36ventures.com",
 };
 
@@ -116,7 +115,7 @@ export type Faq = { q: string; a: string };
 export const faqs: Faq[] = [
   {
     q: "Is it paid? Does it cost anything?",
-    a: "It is unpaid. Selected fellows pay a one-time membership fee, reimbursed in full if you are offered an analyst role. Details are on the membership page.",
+    a: "It is unpaid. Selected fellows pay a one-time membership fee, which covers the tools, templates, certificate, and review. Details are on the membership page.",
   },
   {
     q: "What happens after six weeks?",

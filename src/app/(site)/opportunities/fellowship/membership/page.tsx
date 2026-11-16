@@ -9,7 +9,7 @@ import {
 export const metadata: Metadata = {
   title: "Fellowship Membership | P36 Ventures",
   description:
-    "What the P36 Fellowship Membership covers, what it costs, and how reimbursement works.",
+    "What the P36 Fellowship Membership covers, what it costs, and the cancellation policy.",
 };
 
 const h2 =
@@ -68,16 +68,15 @@ export default function MembershipPage() {
             >
               <span className="heading-serif text-lg italic text-ink-faint">III</span>
               <div className="min-w-0">
-                <h2 className={h2}>Reimbursement</h2>
+                <h2 className={h2}>Analyst roles</h2>
                 <p className={body}>
-                  Reimbursed in full if you are offered a P36 analyst role after
-                  the Week 6 review.
+                  Fellows who stand out may be offered a P36 analyst role. Offers
+                  are made at P36&rsquo;s discretion, based on your execution
+                  during the cohort: the quality of your work, its reliability,
+                  and your judgement. Offers are rare and not guaranteed.
                 </p>
                 <p className={body}>
-                  Offers are made at P36&rsquo;s discretion, based on your
-                  execution during the cohort: the quality of your work, its
-                  reliability, and your judgement. Offers are rare and not
-                  guaranteed.
+                  Whatever the outcome, you keep the templates and certificate.
                 </p>
               </div>
             </div>
@@ -85,39 +84,18 @@ export default function MembershipPage() {
             <div className="grid grid-cols-[40px_1fr] gap-5 border-t border-line py-10 md:grid-cols-[70px_1fr]">
               <span className="heading-serif text-lg italic text-ink-faint">IV</span>
               <div>
-                <h2 className={h2}>Timing</h2>
-                <p className={body}>
-                  Reimbursed in full within {membership.reimbursementDays} days
-                  of joining, to the original payment method.
-                </p>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-[40px_1fr] gap-5 border-t border-line py-10 md:grid-cols-[70px_1fr]">
-              <span className="heading-serif text-lg italic text-ink-faint">V</span>
-              <div>
-                <h2 className={h2}>If you are not offered a role</h2>
-                <p className={body}>
-                  You keep the templates and certificate. No reimbursement.
-                </p>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-[40px_1fr] gap-5 border-t border-line py-10 md:grid-cols-[70px_1fr]">
-              <span className="heading-serif text-lg italic text-ink-faint">VI</span>
-              <div>
                 <h2 className={h2}>Cancelling before the cohort starts</h2>
                 <p className={body}>
                   Cancel at least 7 days before your start date, given in your
                   selection email, for a full refund of the membership fee.
-                  Cancellations within 7 days of the start date are not
-                  refunded.
+                  Cancellations within 7 days of the start date, and after the
+                  cohort begins, are not refunded.
                 </p>
               </div>
             </div>
 
             <div className="grid grid-cols-[40px_1fr] gap-5 border-y border-line py-10 md:grid-cols-[70px_1fr]">
-              <span className="heading-serif text-lg italic text-ink-faint">VII</span>
+              <span className="heading-serif text-lg italic text-ink-faint">V</span>
               <div>
                 <h2 className={h2}>Questions</h2>
                 <p className={body}>

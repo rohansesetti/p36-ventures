@@ -66,14 +66,14 @@ export default async function WelcomePage({ params }: Props) {
               <span className="ml-3 font-sans text-[14px] text-ink-faint">one-time</span>
             </p>
             <p className="mt-5 max-w-[26rem] text-[14px] leading-[1.7] text-ink-soft">
-              Reimbursed in full if you are offered an analyst role. You keep the
-              templates and certificate either way.
+              Covers the tools, templates, certificate and review. Fellows who
+              stand out may be considered for an analyst role.
             </p>
             <Link
-              href="/opportunities/fellowship/membership#criteria"
+              href="/opportunities/fellowship/membership"
               className="mt-3 inline-block text-[13px] text-ink underline underline-offset-4"
             >
-              Reimbursement criteria
+              Membership details
             </Link>
 
             <div className="mt-10">
