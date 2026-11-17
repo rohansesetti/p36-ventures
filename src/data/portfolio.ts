@@ -39,7 +39,7 @@ export const portfolioItems: PortfolioItem[] = [
     category: "SaaS",
     initials: "PX",
     initialsAccent: "navy",
-    logoSrc: "/logos/prospex-clean.png",
+    logoSrc: "/logos/prospex.png",
     logoWidth: 192,
     logoHeight: 90,
     result:
@@ -52,7 +52,7 @@ export const portfolioItems: PortfolioItem[] = [
     category: "Regen",
     initials: "TI",
     initialsAccent: "forest",
-    logoSrc: "/logos/terra-initiative-clean.png",
+    logoSrc: "/logos/terra-initiative.png",
     logoWidth: 377,
     logoHeight: 136,
     result:
@@ -65,7 +65,7 @@ export const portfolioItems: PortfolioItem[] = [
     category: "DeepTech",
     initials: "IE",
     initialsAccent: "orange",
-    logoSrc: "/logos/isa-energy-clean.png",
+    logoSrc: "/logos/isa-energy.png",
     logoWidth: 176,
     logoHeight: 42,
     result:
@@ -105,7 +105,7 @@ export const portfolioItems: PortfolioItem[] = [
     category: "Regen",
     initials: "UC",
     initialsAccent: "forest",
-    logoSrc: "/logos/uci-clean.png",
+    logoSrc: "/logos/uci.png",
     logoWidth: 143,
     logoHeight: 167,
     result:
@@ -118,7 +118,7 @@ export const portfolioItems: PortfolioItem[] = [
     category: "DeepTech",
     initials: "RN",
     initialsAccent: "orange",
-    logoSrc: "/logos/rippling-nature-clean.png",
+    logoSrc: "/logos/rippling-nature.png",
     logoWidth: 123,
     logoHeight: 123,
     websiteUrl: "https://www.ripplingnature.com/",
@@ -132,7 +132,7 @@ export const portfolioItems: PortfolioItem[] = [
     category: "Regen",
     initials: "RA",
     initialsAccent: "blue",
-    logoSrc: "/logos/reserva-azul-clean.png",
+    logoSrc: "/logos/reserva-azul.png",
     logoWidth: 969,
     logoHeight: 273,
     websiteUrl: "https://www.gotaazulcr.com/en/",
