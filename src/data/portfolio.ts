@@ -21,7 +21,7 @@ export type PortfolioItem = {
   result: string;
   /** Exact substring of `result` to emphasize (financial / strategic outcome). */
   outcomeEmphasis?: string;
-  /** Public path under `/public`, e.g. `/logos/isa-energy.png` */
+  /** Public path under `/public`, e.g. `/logos/isa-energy-clean.png` */
   logoSrc?: string;
   /** Intrinsic size of the logo file, used for optical sizing. */
   logoWidth?: number;
@@ -39,7 +39,7 @@ export const portfolioItems: PortfolioItem[] = [
     category: "SaaS",
     initials: "PX",
     initialsAccent: "navy",
-    logoSrc: "/logos/prospex.png",
+    logoSrc: "/logos/prospex-clean.png",
     logoWidth: 192,
     logoHeight: 90,
     result:
@@ -52,9 +52,6 @@ export const portfolioItems: PortfolioItem[] = [
     category: "Regen",
     initials: "TI",
     initialsAccent: "forest",
-    logoSrc: "/logos/terra-initiative.png",
-    logoWidth: 377,
-    logoHeight: 136,
     result:
       "Lead capital advisor to a regional regeneration initiative. Built the $200M financial architecture and the investment memorandum, and now manage institutional investor relations as the program scales across the region.",
     outcomeEmphasis: "$200M financial architecture",
@@ -65,7 +62,7 @@ export const portfolioItems: PortfolioItem[] = [
     category: "DeepTech",
     initials: "IE",
     initialsAccent: "orange",
-    logoSrc: "/logos/isa-energy.png",
+    logoSrc: "/logos/isa-energy-clean.png",
     logoWidth: 176,
     logoHeight: 42,
     result:
@@ -105,7 +102,7 @@ export const portfolioItems: PortfolioItem[] = [
     category: "Regen",
     initials: "UC",
     initialsAccent: "forest",
-    logoSrc: "/logos/uci.png",
+    logoSrc: "/logos/uci-clean.png",
     logoWidth: 143,
     logoHeight: 167,
     result:
@@ -118,7 +115,7 @@ export const portfolioItems: PortfolioItem[] = [
     category: "DeepTech",
     initials: "RN",
     initialsAccent: "orange",
-    logoSrc: "/logos/rippling-nature.png",
+    logoSrc: "/logos/rippling-nature-clean.png",
     logoWidth: 123,
     logoHeight: 123,
     websiteUrl: "https://www.ripplingnature.com/",
@@ -132,7 +129,7 @@ export const portfolioItems: PortfolioItem[] = [
     category: "Regen",
     initials: "RA",
     initialsAccent: "blue",
-    logoSrc: "/logos/reserva-azul.png",
+    logoSrc: "/logos/reserva-azul-clean.png",
     logoWidth: 969,
     logoHeight: 273,
     websiteUrl: "https://www.gotaazulcr.com/en/",

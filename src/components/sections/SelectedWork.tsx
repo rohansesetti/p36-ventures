@@ -35,19 +35,19 @@ function Plus({ open }: { open: boolean }) {
 function LogoChip({ item }: { item: SelectedWorkItem }) {
   if (!item.logo) return null;
   const size = logoDisplaySize(item.logo.width, item.logo.height, {
-    area: 1100,
-    maxW: 64,
-    maxH: 26,
+    area: 1600,
+    maxW: 80,
+    maxH: 32,
   });
   return (
-    <span className="flex h-11 w-[4.75rem] shrink-0 items-center justify-center border border-line bg-white">
+    <span className="flex h-12 w-24 shrink-0 items-center justify-center border border-line bg-white">
       <Image
         src={item.logo.src}
         alt=""
         width={item.logo.width}
         height={item.logo.height}
         quality={100}
-        sizes="64px"
+        sizes="80px"
         className="object-contain"
         style={size}
       />

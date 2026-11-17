@@ -45,7 +45,7 @@ export const selectedWork: SelectedWorkItem[] = [
       alt: "Looking up through a grid of downtown towers",
     },
     logo: {
-      src: "/logos/prospex.png",
+      src: "/logos/prospex-clean.png",
       width: 192,
       height: 90,
       shape: "wide",
@@ -66,12 +66,6 @@ export const selectedWork: SelectedWorkItem[] = [
       src: "/photos/mandates/terra.jpg",
       alt: "Sunlit path through a dense forest",
     },
-    logo: {
-      src: "/logos/terra-initiative.png",
-      width: 377,
-      height: 136,
-      shape: "wide",
-    },
     expand:
       "A multi-stakeholder regeneration vehicle needed an institutional-grade memorandum before it could approach sovereign and family-office capital. We built the $200M financial architecture and now manage institutional investor relations as the program scales across the region.",
   },
@@ -89,8 +83,8 @@ export const selectedWork: SelectedWorkItem[] = [
       alt: "High-voltage pylons receding across a plain at dusk",
     },
     logo: {
-      src: "/logos/isa-energy.png",
-      width: 176,
+      src: "/logos/isa-energy-clean.png",
+      width: 177,
       height: 42,
       shape: "wide",
     },
@@ -155,7 +149,7 @@ export const selectedWork: SelectedWorkItem[] = [
       alt: "University campus building seen through trees",
     },
     logo: {
-      src: "/logos/uci.png",
+      src: "/logos/uci-clean.png",
       width: 143,
       height: 167,
       shape: "mark",
@@ -177,7 +171,7 @@ export const selectedWork: SelectedWorkItem[] = [
       alt: "Mountain lake at dusk with a still shoreline",
     },
     logo: {
-      src: "/logos/rippling-nature.png",
+      src: "/logos/rippling-nature-clean.png",
       width: 123,
       height: 123,
       shape: "mark",
@@ -200,7 +194,7 @@ export const selectedWork: SelectedWorkItem[] = [
       alt: "Clear alpine lake under a mountain range",
     },
     logo: {
-      src: "/logos/reserva-azul.png",
+      src: "/logos/reserva-azul-clean.png",
       width: 969,
       height: 273,
       shape: "wide",
