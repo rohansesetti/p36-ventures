@@ -57,19 +57,6 @@ export const portfolioItems: PortfolioItem[] = [
     outcomeEmphasis: "$200M financial architecture",
   },
   {
-    id: "isa-energy",
-    name: "ISA Energy",
-    category: "DeepTech",
-    initials: "IE",
-    initialsAccent: "orange",
-    logoSrc: "/logos/isa-energy-clean.png",
-    logoWidth: 176,
-    logoHeight: 42,
-    result:
-      "Capital readiness and transaction advisory for a quantum energy company. Built the financial model and strategic plan for a high-stakes institutional funding cycle.",
-    outcomeEmphasis: "high-stakes institutional funding cycle",
-  },
-  {
     id: "solaryn",
     name: "Solaryn",
     category: "DeepTech",

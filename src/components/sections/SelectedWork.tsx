@@ -170,7 +170,7 @@ export function SelectedWork() {
                 Mandates we have led, from first model to close.
               </h2>
               <p className="mt-5 max-w-[34rem] text-[14px] leading-[1.7] text-ink-soft">
-                Capital advisory and studio work across deep tech, energy,
+                Capital advisory and studio work across deep tech, sustainability,
                 regeneration, and education.
               </p>
             </div>

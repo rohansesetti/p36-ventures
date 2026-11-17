@@ -39,7 +39,7 @@ export const selectedWork: SelectedWorkItem[] = [
     sector: "B2B SaaS",
     stage: "$600K seed",
     status: "Current",
-    year: "2024",
+    year: "2025",
     image: {
       src: "/photos/mandates/prospex.jpg",
       alt: "Looking up through a grid of downtown towers",
@@ -61,35 +61,13 @@ export const selectedWork: SelectedWorkItem[] = [
     sector: "Regen",
     stage: "$200M architecture",
     status: "Current",
-    year: "2023",
+    year: "2025",
     image: {
       src: "/photos/mandates/terra.jpg",
       alt: "Sunlit path through a dense forest",
     },
     expand:
       "A multi-stakeholder regeneration vehicle needed an institutional-grade memorandum before it could approach sovereign and family-office capital. We built the $200M financial architecture and now manage institutional investor relations as the program scales across the region.",
-  },
-  {
-    id: "isa-energy",
-    name: "ISA Energy",
-    desc: "Capital readiness and transaction advisory for a quantum energy pioneer.",
-    type: "capital",
-    sector: "Deep tech",
-    stage: "Institutional",
-    status: "Current",
-    year: "2024",
-    image: {
-      src: "/photos/mandates/isa-energy.jpg",
-      alt: "High-voltage pylons receding across a plain at dusk",
-    },
-    logo: {
-      src: "/logos/isa-energy-clean.png",
-      width: 177,
-      height: 42,
-      shape: "wide",
-    },
-    expand:
-      "We built the financial model and strategic plan for a high-stakes institutional funding cycle, preparing a frontier energy technology for investors who expect rigor.",
   },
   {
     id: "solaryn",
@@ -99,7 +77,7 @@ export const selectedWork: SelectedWorkItem[] = [
     sector: "Deep tech",
     stage: "$1.3M closed",
     status: "Current",
-    year: "2023",
+    year: "2025",
     image: {
       src: "/photos/mandates/solaryn.jpg",
       alt: "Laboratory equipment on a research bench",
@@ -121,7 +99,7 @@ export const selectedWork: SelectedWorkItem[] = [
     sector: "Fintech",
     stage: "Fractional CEO",
     status: "Ongoing",
-    year: "2022",
+    year: "2025",
     image: {
       src: "/photos/mandates/ageless.jpg",
       alt: "Quiet residential interior with warm natural light",
@@ -143,7 +121,7 @@ export const selectedWork: SelectedWorkItem[] = [
     sector: "Education",
     stage: "Global program",
     status: "Current",
-    year: "2024",
+    year: "2026",
     image: {
       src: "/photos/mandates/uic.jpg",
       alt: "University campus building seen through trees",
@@ -165,7 +143,7 @@ export const selectedWork: SelectedWorkItem[] = [
     sector: "Sustainability",
     stage: "Fractional CFO",
     status: "Ongoing",
-    year: "2021",
+    year: "2026",
     image: {
       src: "/photos/mandates/rippling.jpg",
       alt: "Mountain lake at dusk with a still shoreline",
@@ -188,7 +166,7 @@ export const selectedWork: SelectedWorkItem[] = [
     sector: "Consumer",
     stage: "GTM advisory",
     status: "Ongoing",
-    year: "2022",
+    year: "2026",
     image: {
       src: "/photos/mandates/reserva-azul.jpg",
       alt: "Clear alpine lake under a mountain range",
