@@ -45,7 +45,7 @@ export const selectedWork: SelectedWorkItem[] = [
       alt: "Looking up through a grid of downtown towers",
     },
     logo: {
-      src: "/logos/prospex-clean.png",
+      src: "/logos/prospex.png",
       width: 192,
       height: 90,
       shape: "wide",
@@ -67,7 +67,7 @@ export const selectedWork: SelectedWorkItem[] = [
       alt: "Sunlit path through a dense forest",
     },
     logo: {
-      src: "/logos/terra-initiative-clean.png",
+      src: "/logos/terra-initiative.png",
       width: 377,
       height: 136,
       shape: "wide",
@@ -89,7 +89,7 @@ export const selectedWork: SelectedWorkItem[] = [
       alt: "High-voltage pylons receding across a plain at dusk",
     },
     logo: {
-      src: "/logos/isa-energy-clean.png",
+      src: "/logos/isa-energy.png",
       width: 176,
       height: 42,
       shape: "wide",
@@ -155,7 +155,7 @@ export const selectedWork: SelectedWorkItem[] = [
       alt: "University campus building seen through trees",
     },
     logo: {
-      src: "/logos/uci-clean.png",
+      src: "/logos/uci.png",
       width: 143,
       height: 167,
       shape: "mark",
@@ -177,7 +177,7 @@ export const selectedWork: SelectedWorkItem[] = [
       alt: "Mountain lake at dusk with a still shoreline",
     },
     logo: {
-      src: "/logos/rippling-nature-clean.png",
+      src: "/logos/rippling-nature.png",
       width: 123,
       height: 123,
       shape: "mark",
@@ -200,7 +200,7 @@ export const selectedWork: SelectedWorkItem[] = [
       alt: "Clear alpine lake under a mountain range",
     },
     logo: {
-      src: "/logos/reserva-azul-clean.png",
+      src: "/logos/reserva-azul.png",
       width: 969,
       height: 273,
       shape: "wide",
